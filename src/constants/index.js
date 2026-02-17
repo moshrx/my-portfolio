@@ -168,40 +168,8 @@ export const SOCIALS = [
   }
 ];
 
-export const GALLERY_IMAGES = [
-  { 
-    id: 1, 
-    src: "/assets/gallery/img1.avif", 
-    alt: "Perspective 01", 
-    caption: "The Blue Hour", 
-    location: "PEI" 
-  },
-  { 
-    id: 2, 
-    src: "/assets/gallery/img2.avif", 
-    alt: "Perspective 02", 
-    caption: "Red Dirt Roads", 
-    location: "California" 
-  },
-  { 
-    id: 3, 
-    src: "/assets/gallery/img3.avif", 
-    alt: "Perspective 03", 
-    caption: "Stadium Lights", 
-    location: "California" 
-  },
-  { 
-    id: 4, 
-    src: "/assets/gallery/img4.avif", 
-    alt: "Perspective 04", 
-    caption: "Geometric Shadows", 
-    location: "California" 
-  },
-  { 
-    id: 5, 
-    src: "/assets/gallery/img5.avif", 
-    alt: "Perspective 05", 
-    caption: "Caffeine & Code", 
-    location: "California" 
-  },
-];
+export const GALLERY_IMAGES = Array.from({ length: 19 }, (_, i) => ({
+  id: i + 1,
+  src: `/assets/gallery/img${i + 1}.avif`,
+  alt: `Perspective ${String(i + 1).padStart(2, '0')}`,
+}));
