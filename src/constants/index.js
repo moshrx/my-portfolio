@@ -2,6 +2,7 @@ import {
   Github, 
   Instagram, 
   Mail, 
+  Sun,
   Coffee, 
   Heart,
   Video,
@@ -127,7 +128,7 @@ export const INTERESTS = [
     id: "sunset", 
     title: "Peak hour", 
     subtitle: "I like sky colors.", 
-    icon: Video, 
+    icon: Sun, 
    span: "md:col-span-7",
     aspect: "aspect-video md:aspect-auto",
     height: "min-h-[450px]" /// Ultrawide cinematic
