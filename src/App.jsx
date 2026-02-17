@@ -9,27 +9,21 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ScrollToTop from "./components/animations/ScrollToTop";
 
-export const appleEasing = [0.22, 1, 0.36, 1];
-
 function App() {
   const location = useLocation();
 
   return (
     <div className="relative bg-[#050505] text-white selection:bg-primary/30 antialiased overflow-x-hidden">
-      {/* Scroll Logic - Must be outside Routes to work correctly */}
       <ScrollToTop />
-
-      {/* Cinematic Overlays */}
+      
+      {/* Performance Optimization: Disable blurs on low-power mobile devices if needed */}
       <div className="fixed inset-0 z-[999] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="fixed top-[-10%] left-[-10%] w-[70%] h-[50%] bg-primary/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
 
       <Navbar />
 
-      <main className="min-h-screen">
+      <main className="min-h-[100svh]">
         <AnimatePresence mode="wait">
-          {/* Providing location and key to Routes is what allows 
-            AnimatePresence to detect a page change and trigger the exit animation 
-          */}
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />

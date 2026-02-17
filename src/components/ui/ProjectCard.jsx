@@ -2,38 +2,54 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 const ProjectCard = ({ project }) => {
+  // Mobile check to adjust animations
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -10 }}
-      className="group relative bg-surface border border-white/5 rounded-3xl overflow-hidden"
+      viewport={{ once: true, amount: 0.1 }}
+      // Optimization: Only lift on desktop. Scale slightly on tap for mobile.
+      whileHover={!isMobile ? { y: -10 } : {}}
+      whileTap={isMobile ? { scale: 0.98 } : {}}
+      className="group relative bg-zinc-900/50 border border-white/5 rounded-[32px] md:rounded-[40px] overflow-hidden backdrop-blur-sm"
     >
-      <div className="aspect-[16/10] overflow-hidden bg-zinc-900">
-        <div className="w-full h-full bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-110 transition-transform duration-700 ease-out flex items-center justify-center text-zinc-800 font-bold">
-           {/* Placeholder for when you add images to public/projects/ */}
-           [ {project.title} Screenshot ]
+      {/* 1. Image/Preview Container */}
+      <div className="aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-zinc-900">
+        <div className="w-full h-full bg-gradient-to-br from-primary/10 to-transparent group-hover:scale-105 transition-transform duration-700 ease-out flex items-center justify-center text-zinc-700 font-mono text-[10px] uppercase tracking-widest">
+           {/* If you add images, use: <img src={project.image} className="w-full h-full object-cover" /> */}
+           [ View Case Study ]
         </div>
       </div>
       
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl font-bold group-hover:text-primary transition-colors italic uppercase tracking-tighter">
+      {/* 2. Content Container */}
+      <div className="p-8 md:p-10">
+        <div className="flex justify-between items-start mb-6">
+          <h3 className="text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors italic uppercase tracking-tighter leading-none">
             {project.title}
           </h3>
-          <a href={project.link} target="_blank" rel="noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary transition-colors">
-            <ExternalLink size={18} className="text-zinc-400 group-hover:text-white" />
+          <a 
+            href={project.link} 
+            target="_blank" 
+            rel="noreferrer" 
+            className="p-3 md:p-4 bg-white/5 rounded-full hover:bg-primary transition-all active:scale-90"
+          >
+            <ExternalLink size={isMobile ? 20 : 22} className="text-zinc-400 group-hover:text-white" />
           </a>
         </div>
         
-        <p className="text-secondary text-sm leading-relaxed mb-6 h-12 line-clamp-2">
+        <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8 line-clamp-3 md:line-clamp-2 antialiased">
           {project.description}
         </p>
         
-        <div className="flex flex-wrap gap-2">
+        {/* 3. Tech Stack: Larger touch-friendly chips */}
+        <div className="flex flex-wrap gap-2 md:gap-3">
           {project.tech.map((t) => (
-            <span key={t} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-white/5 rounded-full text-zinc-500 border border-white/5">
+            <span 
+              key={t} 
+              className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 bg-white/5 rounded-full text-zinc-500 border border-white/10"
+            >
               {t}
             </span>
           ))}
