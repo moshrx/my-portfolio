@@ -52,20 +52,7 @@ const Contact = () => {
           />
         </div>
 
-        <div className="space-y-2">
-          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Inquiry Type</label>
-          <div className="relative">
-            <select className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light appearance-none text-zinc-400">
-              <option className="bg-black">Web Development</option>
-              <option className="bg-black">Video Editing</option>
-              <option className="bg-black">Color Grading</option>
-            </select>
-            {/* Custom arrow for the select dropdown */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-600">
-              ↓
-            </div>
-          </div>
-        </div>
+        
 
         <div className="space-y-2">
           <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Message</label>

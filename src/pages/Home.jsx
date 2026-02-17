@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { PROJECTS, PERSONAL, INTERESTS } from "../constants";
 import ProjectRow from "../components/ui/ProjectRow";
 import BentoCard from "../components/ui/BentoCard";
-import { useMemo } from "react";
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -14,7 +13,6 @@ const Home = () => {
   const heroScale = useTransform(smoothY, [0, 600], [1, 0.98]);
 
   const appleEasing = [0.22, 1, 0.36, 1];
-  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <motion.div 
@@ -40,7 +38,7 @@ const Home = () => {
             animate={{ opacity: 1, letterSpacing: "0.4em" }}
             className="text-primary font-mono uppercase text-[9px] md:text-[10px] mb-6 md:mb-8 block font-black"
           >
-            {PERSONAL.location} — {currentYear}
+            {PERSONAL.location}
           </motion.span>
           
           <h1 className="text-[17vw] md:text-[11vw] font-bold tracking-tighter leading-[0.85] md:leading-[0.8] uppercase select-none pointer-events-none">

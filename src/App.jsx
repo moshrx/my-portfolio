@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
-import Services from "./pages/Services";
+import Intent from "./pages/Intent";
 import ScrollToTop from "./components/animations/ScrollToTop";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/Intent" element={<Intent />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

@@ -26,7 +26,7 @@ export const PERSONAL = {
  */
 export const NAV_LINKS = [
   { name: "Work", href: "/", type: "internal" },
-  { name: "Services", href: "/services", type: "internal" },
+  { name: "Intent", href: "/intent", type: "internal" },
   { name: "Gallery", href: "/gallery", type: "internal" },
   { name: "Contact", href: "/contact", type: "internal" },
 ];
@@ -42,9 +42,9 @@ export const PROJECTS = [
     year: "2026",
     link: "https://cricketpei.ca",
     tag: "Sports Federation",
-    description: "Architecting a professional digital home for PEI Cricket. Focused on high-performance data delivery and professional athletic branding.",
-    tech: ["HTML5", "Tailwind CSS", "Design"],
-    color: "#0071e3", // Primary Blue
+    description: "Designed and developed the official website for PEI Cricket. Focused on structured layouts, fast performance, and clear access to match data and updates.",
+    tech: ["HTML5", "Tailwind CSS", "UI Design"],
+    color: "#0071e3",
     image: "/assets/projects/cricket.jpg"
   },
   {
@@ -52,10 +52,10 @@ export const PROJECTS = [
     title: "Moe's Latte",
     year: "2026",
     link: "https://moes-latte.netlify.app/",
-    tag: "Luxury Café",
-    description: "An immersive sensory experience designed for the modern café culture. Minimalist UI with high-end editorial photography.",
-    tech: ["HTML5", "Tailwind CSS", "Design"],
-    color: "#D4A373", // Coffee Gold
+    tag: "Café Website",
+    description: "A cozy, modern café website built with strong typography, warm tones, and smooth transitions to reflect the in-store atmosphere.",
+    tech: ["HTML5", "Tailwind CSS", "UI Design"],
+    color: "#D4A373",
     image: "/assets/projects/moes.jpg"
   },
   {
@@ -64,9 +64,9 @@ export const PROJECTS = [
     year: "2026",
     link: "https://redsoil.netlify.app/",
     tag: "Community Branding",
-    description: "Capturing the essence of Prince Edward Island through structured grid systems and organic color palettes.",
-    tech: ["HTML5", "Tailwind CSS", "Design"],
-    color: "#BC4749", // Earthy Red
+    description: "A clean and structured brand website inspired by Prince Edward Island’s identity. Focused on grid systems, spacing, and visual consistency.",
+    tech: ["HTML5", "Tailwind CSS", "Brand UI"],
+    color: "#BC4749",
     image: "/assets/projects/redsoil.jpg"
   },
   {
@@ -74,10 +74,10 @@ export const PROJECTS = [
     title: "Fat Cat Bakery",
     year: "2026",
     link: "https://fatcatbakery.netlify.app/",
-    tag: "Artisanal UI",
-    description: "A playful yet premium interface for local artisans. Prioritizing tactile micro-interactions and high-conversion layouts.",
-    tech: ["HTML5", "Tailwind CSS", "Design"],
-    color: "#F2CC8F", // Bakery Warmth
+    tag: "Local Business",
+    description: "A playful yet polished bakery website with subtle micro-interactions and conversion-focused layout decisions.",
+    tech: ["HTML5", "Tailwind CSS", "UX/UI"],
+    color: "#F2CC8F",
     image: "/assets/projects/fatcat.jpg"
   },
   {
@@ -85,14 +85,13 @@ export const PROJECTS = [
     title: "Pink Crow",
     year: "2026",
     link: "https://pinkcrow.netlify.app/",
-    tag: "Artisanal UI",
-    description: "A sanctuary of smoke and spice. A luxury digital experience for Charlottetown’s premier wood-fired dining destination, focusing on high-contrast editorial design and fluid motion.",
-    tech: ["HTML5", "Tailwind CSS", "Design"],
-    color: "#D4A373", // Bakery Warmth
+    tag: "Restaurant Experience",
+    description: "A bold, high-contrast restaurant website built around immersive imagery, strong hierarchy, and fluid motion design.",
+    tech: ["HTML5", "Tailwind CSS", "UI Design"],
+    color: "#D4A373",
     image: "/assets/projects/pinkcrow.jpg"
   }
 ];
-
 /**
  * 4. INTERESTS / BENTO CONTENT
  */

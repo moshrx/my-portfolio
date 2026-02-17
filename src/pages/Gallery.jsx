@@ -75,7 +75,6 @@ const Gallery = () => {
                   {img.location}
                </span>
                <p className="text-xl md:text-3xl font-bold tracking-tighter text-white italic leading-none">
-                  {img.caption}
                </p>
             </div>
           </motion.div>
