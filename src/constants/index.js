@@ -38,46 +38,57 @@ export const PROJECTS = [
   {
     id: 0,
     title: "Cricket PEI",
-    year: "2025",
+    year: "2026",
     link: "https://cricketpei.ca",
     tag: "Sports Federation",
     description: "Architecting a professional digital home for PEI Cricket. Focused on high-performance data delivery and professional athletic branding.",
-    tech: ["React", "Framer Motion", "Tailwind"],
+    tech: ["HTML5", "Tailwind CSS", "Design"],
     color: "#0071e3", // Primary Blue
-    image: "/assets/projects/cricket-hero.jpg"
+    image: "/assets/projects/cricket.jpg"
   },
   {
     id: 1,
     title: "Moe's Latte",
-    year: "2024",
+    year: "2026",
     link: "https://moes-latte.netlify.app/",
     tag: "Luxury Café",
     description: "An immersive sensory experience designed for the modern café culture. Minimalist UI with high-end editorial photography.",
-    tech: ["Framer Motion", "React", "Design"],
+    tech: ["HTML5", "Tailwind CSS", "Design"],
     color: "#D4A373", // Coffee Gold
-    image: "/assets/projects/latte-hero.jpg"
+    image: "/assets/projects/moes.jpg"
   },
   {
     id: 2,
     title: "Red Soil",
-    year: "2024",
+    year: "2026",
     link: "https://redsoil.netlify.app/",
     tag: "Community Branding",
     description: "Capturing the essence of Prince Edward Island through structured grid systems and organic color palettes.",
-    tech: ["JavaScript", "CSS3", "Design"],
+    tech: ["HTML5", "Tailwind CSS", "Design"],
     color: "#BC4749", // Earthy Red
-    image: "/assets/projects/redsoil-hero.jpg"
+    image: "/assets/projects/redsoil.jpg"
   },
   {
     id: 3,
     title: "Fat Cat Bakery",
-    year: "2023",
+    year: "2026",
     link: "https://fatcatbakery.netlify.app/",
     tag: "Artisanal UI",
     description: "A playful yet premium interface for local artisans. Prioritizing tactile micro-interactions and high-conversion layouts.",
-    tech: ["UI Design", "Frontend", "Interaction"],
+    tech: ["HTML5", "Tailwind CSS", "Design"],
     color: "#F2CC8F", // Bakery Warmth
-    image: "/assets/projects/bakery-hero.jpg"
+    image: "/assets/projects/fatcat.jpg"
+  },
+  {
+    id: 4,
+    title: "Pink Crow",
+    year: "2026",
+    link: "https://pinkcrow.netlify.app/",
+    tag: "Artisanal UI",
+    description: "A sanctuary of smoke and spice. A luxury digital experience for Charlottetown’s premier wood-fired dining destination, focusing on high-contrast editorial design and fluid motion.",
+    tech: ["HTML5", "Tailwind CSS", "Design"],
+    color: "#D4A373", // Bakery Warmth
+    image: "/assets/projects/pinkcrow.jpg"
   }
 ];
 
@@ -114,8 +125,8 @@ export const INTERESTS = [
   },
   { 
     id: "sunset", 
-    title: "Video & Motion", 
-    subtitle: "Color grading.", 
+    title: "Peak hour", 
+    subtitle: "I like sky colors.", 
     icon: Video, 
    span: "md:col-span-7",
     aspect: "aspect-video md:aspect-auto",
@@ -144,4 +155,42 @@ export const SOCIALS = [
     icon: Mail,
     handle: "Send Inquiry"
   }
+];
+
+export const GALLERY_IMAGES = [
+  { 
+    id: 1, 
+    src: "/assets/gallery/img1.jpg", 
+    alt: "Perspective 01", 
+    caption: "The Blue Hour", 
+    location: "PEI" 
+  },
+  { 
+    id: 2, 
+    src: "/assets/gallery/img2.jpg", 
+    alt: "Perspective 02", 
+    caption: "Red Dirt Roads", 
+    location: "California" 
+  },
+  { 
+    id: 3, 
+    src: "/assets/gallery/img3.jpg", 
+    alt: "Perspective 03", 
+    caption: "Stadium Lights", 
+    location: "California" 
+  },
+  { 
+    id: 4, 
+    src: "/assets/gallery/img4.jpg", 
+    alt: "Perspective 04", 
+    caption: "Geometric Shadows", 
+    location: "California" 
+  },
+  { 
+    id: 5, 
+    src: "/assets/gallery/img5.jpg", 
+    alt: "Perspective 05", 
+    caption: "Caffeine & Code", 
+    location: "California" 
+  },
 ];
