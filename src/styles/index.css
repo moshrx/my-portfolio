@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* Pure Black */
+    --foreground: 0 0% 100%; /* Pure White */
+  }
+
+  * {
+    @apply border-white/10;
+    /* Smooth scrolling for the whole page */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-white antialiased;
+    /* Apple-style font smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* High-end minimalist scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+  }
+}
+
+/* Custom utility for Apple's signature blur effect */
+.glass {
+  @apply bg-surface/70 backdrop-blur-xl border border-white/10;
+}
+
+/* Typography tweak for that premium editorial look */
+h1, h2, h3, h4 {
+  @apply tracking-tighter;
+}
