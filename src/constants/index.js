@@ -25,7 +25,8 @@ export const PERSONAL = {
  * 2. CINEMATIC NAVIGATION
  */
 export const NAV_LINKS = [
-  { name: "Work", href: "/", type: "internal" },
+  { name: "Home", href: "/"},
+  { name: "Work", href: "/work" },
   { name: "Intent", href: "/intent", type: "internal" },
   { name: "Gallery", href: "/gallery", type: "internal" },
   { name: "Contact", href: "/contact", type: "internal" },
@@ -110,7 +111,7 @@ export const INTERESTS = [
   { 
     id: "barca", 
     title: "The Blue & Red", 
-    subtitle: "Culer since day one.", 
+    subtitle: "More than a club.", 
     icon: Heart, 
     span: "md:col-span-8",
     aspect: "aspect-video md:aspect-auto",
@@ -119,7 +120,7 @@ export const INTERESTS = [
   { 
     id: "coffee", 
     title: "Coffee", 
-    subtitle: "Black roast logic.", 
+    subtitle: "I like coffee.", 
     icon: Coffee, 
     span: "md:col-span-3",
     aspect: "aspect-square",
@@ -128,7 +129,7 @@ export const INTERESTS = [
   { 
     id: "video", 
     title: "Video & Motion", 
-    subtitle: "Color grading.", 
+    subtitle: "I just found out video editing is fun.", 
     icon: Video, 
     span: "md:col-span-4",
     aspect: "aspect-square",
@@ -136,12 +137,12 @@ export const INTERESTS = [
   },
   { 
     id: "sunset", 
-    title: "Peak hour", 
-    subtitle: "I like sky colors.", 
+    title: "Sunset", 
+    subtitle: "My top best time.", 
     icon: Sun, 
-   span: "md:col-span-7",
+    span: "md:col-span-7",
     aspect: "aspect-video md:aspect-auto",
-    height: "min-h-[450px]" /// Ultrawide cinematic
+    height: "min-h-[450px]" // Ultrawide cinematic
   }
 ];
 /**

@@ -17,7 +17,7 @@ const Footer = () => {
               className="text-[12.5vw] md:text-[7vw] font-bold tracking-tighter leading-[0.85] uppercase mb-10"
             >
               Start a <br />
-              <span className="text-secondary italic font-light tracking-tight">Conversation.</span>
+              <span className="text-secondary italic font-light tracking-tight">Conversation<span className="text-primary">.</span></span>
             </motion.h2>
             
             <a href={`mailto:${PERSONAL.email}`} className="group inline-flex items-center gap-4 text-lg md:text-4xl font-medium tracking-tight break-all">

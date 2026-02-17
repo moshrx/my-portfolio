@@ -1,13 +1,26 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
+
+// Layout components (Loaded immediately)
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Home from "./pages/Home";
-import Gallery from "./pages/Gallery";
-import ProjectDetail from "./pages/ProjectDetail";
-import Contact from "./pages/Contact";
-import Intent from "./pages/Intent";
 import ScrollToTop from "./components/animations/ScrollToTop";
+
+// Page components (Lazy loaded for performance)
+const Home = lazy(() => import("./pages/Home"));
+const Work = lazy(() => import("./pages/Work"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Intent = lazy(() => import("./pages/Intent"));
+
+// Simple loading state to prevent layout shift
+const PageLoader = () => (
+  <div className="h-[100svh] w-full bg-black flex items-center justify-center">
+    <div className="w-4 h-4 rounded-full bg-primary animate-pulse" />
+  </div>
+);
 
 function App() {
   const location = useLocation();
@@ -16,21 +29,28 @@ function App() {
     <div className="relative bg-[#050505] text-white selection:bg-primary/30 antialiased overflow-x-hidden">
       <ScrollToTop />
       
-      {/* Performance Optimization: Disable blurs on low-power mobile devices if needed */}
-      <div className="fixed inset-0 z-[999] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      <div className="fixed top-[-10%] left-[-10%] w-[70%] h-[50%] bg-primary/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
+      {/* Texture & Ambient Light: Global elements */}
+      <div className="fixed inset-0 z-[99] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="fixed top-[-10%] left-[-10%] w-[70%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
       <Navbar />
 
-      <main className="min-h-[100svh]">
+      <main className="min-h-[100svh] relative z-10">
         <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/Intent" element={<Intent />} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          {/* Wrap routes in Suspense for lazy loading */}
+          <Suspense fallback={<PageLoader />}>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/work" element={<Work />} />
+              <Route path="/work/:id" element={<ProjectDetail />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/intent" element={<Intent />} />
+              <Route path="/contact" element={<Contact />} />
+              
+              {/* Fallback for 404/wrong URLs */}
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Suspense>
         </AnimatePresence>
       </main>
 

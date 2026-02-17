@@ -23,7 +23,7 @@ const Gallery = () => {
           </motion.p>
           <h1 className="text-[14vw] md:text-[9vw] font-bold tracking-tighter uppercase leading-[0.8] mix-blend-difference">
             The <br />
-            <span className="italic font-light tracking-tight text-zinc-400">Archives.</span>
+            <span className="italic font-light tracking-tight text-zinc-400">Archives<span className="text-primary">.</span></span>
           </h1>
         </div>
 

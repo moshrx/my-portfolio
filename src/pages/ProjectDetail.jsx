@@ -2,16 +2,23 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { PROJECTS } from "../constants";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 
 const ProjectDetail = () => {
   const { id } = useParams();
-  const project = useMemo(() => 
-    PROJECTS.find(p => p.id === parseInt(id)) || PROJECTS[0], 
-  [id]);
   
+  // Find project and calculate the "Next" project for the bottom loop
+  const projectIndex = useMemo(() => PROJECTS.findIndex(p => p.id === parseInt(id)), [id]);
+  const project = PROJECTS[projectIndex] || PROJECTS[0];
+  const nextProject = PROJECTS[(projectIndex + 1) % PROJECTS.length];
+
   const containerRef = useRef(null);
   const appleEasing = [0.22, 1, 0.36, 1];
+
+  // Scroll to top on project change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -19,7 +26,6 @@ const ProjectDetail = () => {
   });
   
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-
   const imageScale = useTransform(smoothProgress, [0, 1], [1.1, 1]);
   const imageY = useTransform(smoothProgress, [0, 1], ["-5%", "5%"]);
 
@@ -28,48 +34,50 @@ const ProjectDetail = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative bg-black"
+      className="relative bg-black min-h-screen"
     >
-      {/* GLOW: Adjusted opacity for mobile to save battery/performance */}
+      {/* Dynamic Background Glow: Fixed performance on mobile */}
       <div 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[50svh] opacity-[0.08] md:opacity-10 blur-[80px] md:blur-[120px] pointer-events-none z-0"
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[60svh] opacity-[0.12] blur-[100px] md:blur-[150px] pointer-events-none z-0"
         style={{ 
           background: `radial-gradient(circle, ${project.color || '#0071e3'} 0%, transparent 70%)`,
-          transform: 'translate3d(-50%, 0, 0)'
+          willChange: 'transform'
         }}
       />
 
-      <div className="relative z-10 pt-32 md:pt-40 px-4 md:px-12 pb-20 md:pb-32 max-w-[1800px] mx-auto">
-        {/* Breadcrumb: Tighter spacing for mobile */}
-        <nav className="flex items-center gap-3 mb-12 md:mb-20 text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-500">
-          <Link to="/" className="hover:text-white transition-colors">Work</Link>
-          <ChevronRight size={8} />
-          <span className="text-white truncate max-w-[150px]">{project.title}</span>
+      <div className="relative z-10 pt-32 md:pt-48 px-6 md:px-12 max-w-[1800px] mx-auto">
+        
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-4 mb-12 md:mb-24 text-[10px] uppercase tracking-[0.4em] font-black text-zinc-500">
+          <Link to="/work" className="hover:text-white transition-colors">Work</Link>
+          <ChevronRight size={10} className="text-zinc-800" />
+          <span className="text-white">{project.title}</span>
         </nav>
 
-        {/* Hero Section: Switch grid flow */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 mb-24 md:mb-40">
+        {/* Hero Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 mb-24 md:mb-48">
           <div className="lg:col-span-8">
             <motion.div
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: appleEasing }}
+              transition={{ duration: 1, ease: appleEasing }}
             >
-              <h1 className="text-[16vw] md:text-[9vw] font-bold tracking-tighter leading-[0.85] md:leading-[0.8] uppercase mb-8 md:mb-12">
+              <h1 className="text-[15vw] md:text-[9vw] font-bold tracking-tighter leading-[0.8] uppercase mb-10 md:mb-16">
                 {project.title}<span style={{ color: project.color }}>.</span>
               </h1>
-              <p className="text-xl md:text-4xl text-zinc-400 md:text-secondary max-w-3xl leading-[1.2] md:leading-[1.1] tracking-tight antialiased">
+              <p className="text-xl md:text-5xl text-zinc-400 font-medium leading-[1.1] tracking-tight max-w-4xl">
                 {project.description}
               </p>
             </motion.div>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col justify-end gap-10 md:gap-16">
+          {/* Sidebar Info */}
+          <div className="lg:col-span-4 flex flex-col justify-end gap-12">
             <div className="space-y-6">
-              <h3 className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-zinc-500 font-black">Core Stack</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-black">Technologies</h3>
+              <div className="flex flex-wrap gap-3">
                 {project.tech.map(t => (
-                  <span key={t} className="px-4 md:px-5 py-2 bg-white/5 border border-white/10 rounded-full text-[8px] md:text-[10px] uppercase tracking-widest font-bold">
+                  <span key={t} className="px-5 py-2.5 bg-zinc-900 border border-white/5 rounded-full text-[10px] uppercase tracking-widest font-black text-zinc-300">
                     {t}
                   </span>
                 ))}
@@ -77,47 +85,57 @@ const ProjectDetail = () => {
             </div>
 
             <motion.a 
-              href={project.link} target="_blank"
+              href={project.link} target="_blank" rel="noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-between p-6 md:p-8 bg-white text-black rounded-2xl md:rounded-3xl font-bold text-lg md:text-xl group transition-all duration-500"
+              className="flex items-center justify-between p-8 bg-white text-black rounded-[32px] font-black uppercase text-xs tracking-[0.2em] group transition-all duration-500"
             >
-              Visit Project <ArrowUpRight size={20} className="md:group-hover:rotate-45 transition-transform duration-500" />
+              Launch Site <ArrowUpRight size={22} className="group-hover:rotate-45 transition-transform duration-500" />
             </motion.a>
           </div>
         </div>
 
-        {/* Cinematic Image: Ratio change for mobile (Aspect 4/3 or 16/9 is better for vertical) */}
+        {/* Parallax Image Section */}
         <div 
           ref={containerRef}
-          className="relative aspect-[4/3] md:aspect-[21/9] w-full rounded-[32px] md:rounded-[40px] overflow-hidden bg-zinc-900 border border-white/5"
+          className="relative aspect-[4/5] md:aspect-[21/9] w-full rounded-[40px] md:rounded-[60px] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl"
         >
-          <motion.div 
-            style={{ 
-              scale: imageScale, 
-              y: imageY,
-              willChange: "transform"
-            }}
-            className="w-full h-full"
-          >
-            {project.image ? (
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                loading="eager"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center italic text-zinc-800 text-2xl md:text-4xl font-bold uppercase">
-                {project.title}
-              </div>
-            )}
+          <motion.div style={{ scale: imageScale, y: imageY }} className="w-full h-full">
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
+            />
           </motion.div>
         </div>
       </div>
+
+      {/* Infinite Loop: Next Project Section */}
+      <section className="mt-32 md:mt-60 border-t border-white/5">
+        <Link 
+          to={`/work/${nextProject.id}`}
+          className="group block py-24 md:py-40 px-6 md:px-12 hover:bg-zinc-900/30 transition-colors"
+        >
+          <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="text-center md:text-left">
+              <span className="text-primary text-[10px] uppercase tracking-[0.5em] font-black mb-6 block">
+                Up Next
+              </span>
+              <h2 className="text-[12vw] md:text-[7vw] font-bold tracking-tighter uppercase leading-none group-hover:italic transition-all duration-700">
+                {nextProject.title}
+              </h2>
+            </div>
+            <div className="w-24 h-24 md:w-40 md:h-40 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+              <ArrowUpRight size={isMobile ? 32 : 56} className="text-white group-hover:rotate-45 transition-transform duration-500" />
+            </div>
+          </div>
+        </Link>
+      </section>
     </motion.div>
   );
 };
+
+// Helper to handle responsive icon sizes
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 export default ProjectDetail;
