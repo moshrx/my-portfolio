@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { PROJECTS } from "../constants";
-import { ArrowLeft, ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 const ProjectDetail = () => {

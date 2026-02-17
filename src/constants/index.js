@@ -2,12 +2,9 @@ import {
   Github, 
   Instagram, 
   Mail, 
-  Linkedin, 
   Coffee, 
-  Sun, 
   Heart,
   Video,
-  Monitor
 } from "lucide-react";
 
 /**

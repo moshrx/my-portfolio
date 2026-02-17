@@ -83,12 +83,12 @@ const Navbar = () => {
           {/* SOCIALS */}
           <div className="flex gap-6 text-zinc-400">
             <MagneticElement strength={0.5}>
-              <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" className="hover:text-white transition-all">
+              <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
                 <Instagram size={18} />
               </a>
             </MagneticElement>
             <MagneticElement strength={0.5}>
-              <a href={`https://github.com/${PERSONAL.github}`} target="_blank" className="hover:text-white transition-all">
+              <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
                 <Github size={18} />
               </a>
             </MagneticElement>

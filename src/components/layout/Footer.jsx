@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Instagram, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { PERSONAL, NAV_LINKS } from "../../constants";
 
 const Footer = () => {
@@ -60,8 +60,8 @@ const Footer = () => {
             <div className="space-y-8">
               <h3 className="text-[10px] uppercase tracking-[0.4em] text-zinc-500 font-black">Socials</h3>
               <div className="flex flex-col gap-4 text-sm font-bold uppercase tracking-widest">
-                <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
-                <a href={`https://github.com/${PERSONAL.github}`} target="_blank" className="text-zinc-400 hover:text-white transition-colors">Github</a>
+                <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
+                <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors">Github</a>
                 <a href={`mailto:${PERSONAL.email}`} className="text-zinc-400 hover:text-white transition-colors">Email</a>
               </div>
             </div>
