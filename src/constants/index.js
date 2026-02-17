@@ -42,51 +42,62 @@ export const PROJECTS = [
     year: "2026",
     link: "https://cricketpei.ca",
     tag: "Sports Federation",
-    description: "Designed and developed the official website for PEI Cricket. Focused on structured layouts, fast performance, and clear access to match data and updates.",
+    description: "Official site for PEI Cricket. Built for speed and easy access to match data and federation updates.",
     tech: ["HTML5", "Tailwind CSS", "UI Design"],
     color: "#0071e3",
     image: "/assets/projects/cricket.jpg"
   },
   {
-    id: 1,
-    title: "Moe's Latte",
-    year: "2026",
-    link: "https://moes-latte.netlify.app/",
-    tag: "Café Website",
-    description: "A cozy, modern café website built with strong typography, warm tones, and smooth transitions to reflect the in-store atmosphere.",
-    tech: ["HTML5", "Tailwind CSS", "UI Design"],
-    color: "#D4A373",
-    image: "/assets/projects/moes.jpg"
-  },
-  {
-    id: 2,
+    id: 1, // Red Soil moved up to 2nd
     title: "Red Soil",
     year: "2026",
     link: "https://redsoil.netlify.app/",
     tag: "Community Branding",
-    description: "A clean and structured brand website inspired by Prince Edward Island’s identity. Focused on grid systems, spacing, and visual consistency.",
+    description: "A clean, structured brand site inspired by PEI’s identity. Focus on grid systems and solid spacing.",
     tech: ["HTML5", "Tailwind CSS", "Brand UI"],
     color: "#BC4749",
     image: "/assets/projects/redsoil.jpg"
   },
   {
+    id: 2, // New Lootbins entry
+    title: "Lootbins Canada",
+    year: "2026",
+    link: "https://www.lootbinscanada.com/",
+    tag: "E-commerce & Retail",
+    description: "Inventory-focused retail site. Clean layout designed to handle high product volume and clear navigation.",
+    tech: ["Shopify", "UI Design", "E-commerce"],
+    color: "#E63946",
+    image: "/assets/projects/lootbins.jpg" // Make sure to add this image
+  },
+  {
     id: 3,
+    title: "Moe's Latte",
+    year: "2026",
+    link: "https://moes-latte.netlify.app/",
+    tag: "Café Website",
+    description: "Modern café site with strong typography. Built to match the shop's actual vibe.",
+    tech: ["HTML5", "Tailwind CSS", "UI Design"],
+    color: "#D4A373",
+    image: "/assets/projects/moes.jpg"
+  },
+  {
+    id: 4,
     title: "Fat Cat Bakery",
     year: "2026",
     link: "https://fatcatbakery.netlify.app/",
     tag: "Local Business",
-    description: "A playful yet polished bakery website with subtle micro-interactions and conversion-focused layout decisions.",
+    description: "Polished bakery site with a focus on simple navigation and conversion-friendly layouts.",
     tech: ["HTML5", "Tailwind CSS", "UX/UI"],
     color: "#F2CC8F",
     image: "/assets/projects/fatcat.jpg"
   },
   {
-    id: 4,
+    id: 5,
     title: "Pink Crow",
     year: "2026",
     link: "https://pinkcrow.netlify.app/",
     tag: "Restaurant Experience",
-    description: "A bold, high-contrast restaurant website built around immersive imagery, strong hierarchy, and fluid motion design.",
+    description: "Bold restaurant site with high-contrast imagery and a focus on visual hierarchy.",
     tech: ["HTML5", "Tailwind CSS", "UI Design"],
     color: "#D4A373",
     image: "/assets/projects/pinkcrow.jpg"
