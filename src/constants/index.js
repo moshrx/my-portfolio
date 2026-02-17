@@ -37,8 +37,19 @@ export const NAV_LINKS = [
  * Added 'color' for theme-switching and 'year' for editorial feel.
  */
 export const PROJECTS = [
-  {
+  { 
     id: 0,
+    title: "Fat Cat Bakery",
+    year: "2026",
+    link: "https://fatcatbakery.netlify.app/",
+    tag: "Local Business",
+    description: "Polished bakery site with a focus on simple navigation and conversion-friendly layouts.",
+    tech: ["NextJs", "Tailwind CSS", "UX/UI"],
+    color: "#F2CC8F",
+    image: "/assets/projects/fatcat.jpg"
+  },
+  {
+    id: 1,
     title: "Cricket PEI",
     year: "2026",
     link: "https://cricketpei.ca",
@@ -49,7 +60,7 @@ export const PROJECTS = [
     image: "/assets/projects/cricket.jpg"
   },
   {
-    id: 1, // Red Soil moved up to 2nd
+    id: 2, // Red Soil moved up to 2nd
     title: "Red Soil",
     year: "2026",
     link: "https://redsoil.netlify.app/",
@@ -60,7 +71,7 @@ export const PROJECTS = [
     image: "/assets/projects/redsoil.jpg"
   },
   {
-    id: 2, // New Lootbins entry
+    id: 3, // New Lootbins entry
     title: "Lootbins Canada",
     year: "2026",
     link: "https://www.lootbinscanada.com/",
@@ -71,7 +82,7 @@ export const PROJECTS = [
     image: "/assets/projects/lootbins.jpg" // Make sure to add this image
   },
   {
-    id: 3,
+    id: 4,
     title: "Moe's Latte",
     year: "2026",
     link: "https://moes-latte.netlify.app/",
@@ -80,17 +91,6 @@ export const PROJECTS = [
     tech: ["HTML5", "Tailwind CSS", "UI Design"],
     color: "#D4A373",
     image: "/assets/projects/moes.jpg"
-  },
-  {
-    id: 4,
-    title: "Fat Cat Bakery",
-    year: "2026",
-    link: "https://fatcatbakery.netlify.app/",
-    tag: "Local Business",
-    description: "Polished bakery site with a focus on simple navigation and conversion-friendly layouts.",
-    tech: ["HTML5", "Tailwind CSS", "UX/UI"],
-    color: "#F2CC8F",
-    image: "/assets/projects/fatcat.jpg"
   },
   {
     id: 5,
