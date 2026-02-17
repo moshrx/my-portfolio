@@ -70,7 +70,7 @@ const Home = () => {
             >
               <div className="absolute inset-0 z-0">
                 <img 
-                  src={`/assets/interests/${item.id}.jpg`} 
+                  src={`/assets/interests/${item.id}.avif`} 
                   alt={item.title}
                   loading="lazy"
                   className={`w-full h-full object-cover opacity-50 md:opacity-40 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-110 
