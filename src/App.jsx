@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
-
 // Layout components (Loaded immediately)
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -30,8 +29,13 @@ function App() {
       <ScrollToTop />
       
       {/* Texture & Ambient Light: Global elements */}
-      <div className="fixed inset-0 z-[99] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      <div className="fixed top-[-10%] left-[-10%] w-[70%] h-[50%] bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div
+        className="fixed inset-0 z-[99] pointer-events-none opacity-[0.03] noise-overlay"
+      />
+      <div
+        className="fixed top-[-10%] left-[-10%] w-[120%] h-[60%] pointer-events-none z-0"
+        style={{ background: "radial-gradient(ellipse at 30% 30%, rgba(0,113,227,0.05) 0%, transparent 60%)" }}
+      />
 
       <Navbar />
 

@@ -1,9 +1,45 @@
 import { motion } from "framer-motion";
+import { memo } from "react";
 import { GALLERY_IMAGES } from "../constants";
 
-const Gallery = () => {
-  const appleEasing = [0.22, 1, 0.36, 1];
+const appleEasing = [0.22, 1, 0.36, 1];
 
+const GalleryImage = memo(({ img, i }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{
+      duration: 1,
+      delay: (i % 3) * 0.1,
+      ease: appleEasing,
+    }}
+    className={`relative group overflow-hidden rounded-2xl md:rounded-[40px] bg-zinc-900 border border-white/5
+      ${i % 3 === 1 ? "md:translate-y-12" : ""}
+      ${i % 3 === 2 ? "md:translate-y-24" : ""}
+    `}
+  >
+    <div className="overflow-hidden">
+      <img
+        src={img.src}
+        alt={img.alt}
+        loading={i < 3 ? "eager" : "lazy"}
+        fetchPriority={i < 3 ? "high" : "low"}
+        decoding="async"
+        className="w-full h-full object-cover aspect-[4/5] sm:aspect-square md:aspect-[3/4] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+      />
+    </div>
+
+    {/* Simple Clean Overlay: Only shows ID on hover */}
+    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-start justify-end p-8">
+      <span className="text-xs font-mono text-white/50">
+        REF: {String(img.id).padStart(3, '0')}
+      </span>
+    </div>
+  </motion.div>
+));
+
+const Gallery = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -50,47 +86,13 @@ const Gallery = () => {
       {/* Modern Offset Grid */}
       <div className="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
         {GALLERY_IMAGES.map((img, i) => (
-          <motion.div
-            key={img.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{
-              duration: 1,
-              delay: (i % 3) * 0.1,
-              ease: appleEasing,
-            }}
-            // NEW: Adding vertical offset to columns to create a "broken" grid look
-            className={`relative group overflow-hidden rounded-2xl md:rounded-[40px] bg-zinc-900 border border-white/5 
-              ${i % 3 === 1 ? "md:translate-y-12" : ""} 
-              ${i % 3 === 2 ? "md:translate-y-24" : ""}
-            `}
-          >
-            <motion.div className="overflow-hidden">
-              <motion.img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                decoding="async"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.8, ease: appleEasing }}
-                className="w-full h-full object-cover aspect-[4/5] sm:aspect-square md:aspect-[3/4]"
-              />
-            </motion.div>
-
-            {/* Simple Clean Overlay: Only shows ID on hover */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-start justify-end p-8">
-              <span className="text-xs font-mono text-white/50">
-                REF: {String(img.id).padStart(3, '0')}
-              </span>
-            </div>
-          </motion.div>
+          <GalleryImage key={img.id} img={img} i={i} />
         ))}
       </div>
 
-      {/* New Element: Horizontal Scroll Banner at the bottom */}
+      {/* Horizontal Scroll Banner */}
       <div className="mt-40 border-t border-white/10 pt-10 overflow-hidden whitespace-nowrap">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -1000] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="flex gap-20 text-[10vw] font-black uppercase tracking-tighter text-zinc-900 opacity-50 select-none"

@@ -17,11 +17,11 @@ const Contact = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: appleEasing }}
       >
-        <h1 className="text-[22vw] md:text-[10vw] font-bold tracking-tighter leading-none mb-8 md:mb-12">
+        <h1 className="text-[16vw] md:text-[10vw] font-bold tracking-tighter leading-none mb-8 md:mb-12">
           TALK<span className="text-primary">.</span>
         </h1>
-        <p className="text-xl md:text-2xl text-zinc-400 md:text-secondary mb-12 md:mb-20 max-w-md leading-relaxed">
-          Currently based in {PERSONAL.location}. <br className="hidden md:block" /> 
+        <p className="text-lg md:text-2xl text-zinc-400 md:text-secondary mb-12 md:mb-20 max-w-md leading-relaxed">
+          Currently based in {PERSONAL.location}. <br className="hidden md:block" />
           Open for collaborations that value motion and design.
         </p>
         
@@ -29,7 +29,7 @@ const Contact = () => {
           <p className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold">Direct Email</p>
           <a 
             href={`mailto:${PERSONAL.email}`} 
-            className="text-2xl md:text-3xl font-bold hover:text-primary transition-colors underline underline-offset-8 decoration-1 break-all"
+            className="text-xl md:text-3xl font-bold hover:text-primary transition-colors underline underline-offset-8 decoration-1 break-words"
           >
             {PERSONAL.email}
           </a>
@@ -41,7 +41,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: appleEasing }}
-        className="space-y-8 md:space-y-12 bg-white/[0.02] p-8 md:p-12 rounded-[32px] md:rounded-[40px] border border-white/5 backdrop-blur-3xl"
+        className="space-y-8 md:space-y-12 bg-white/[0.02] p-6 md:p-12 rounded-[24px] md:rounded-[40px] border border-white/5 backdrop-blur-xl"
       >
         <div className="space-y-2 group">
           <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Name</label>

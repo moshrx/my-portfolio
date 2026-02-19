@@ -6,6 +6,7 @@ import {
   Coffee, 
   Heart,
   Video,
+  Crown,
 } from "lucide-react";
 
 /**
@@ -115,7 +116,7 @@ export const INTERESTS = [
     icon: Heart, 
     span: "md:col-span-8",
     aspect: "aspect-video md:aspect-auto",
-    height: "min-h-[450px]" // Taller for drama
+    height: "md:min-h-[450px]" // Taller for drama
   },
   { 
     id: "coffee", 
@@ -124,7 +125,7 @@ export const INTERESTS = [
     icon: Coffee, 
     span: "md:col-span-3",
     aspect: "aspect-square",
-    height: "min-h-[280px]" // Shorter, focused crop
+    height: "md:min-h-[280px]" // Shorter, focused crop
   },
   { 
     id: "video", 
@@ -133,7 +134,7 @@ export const INTERESTS = [
     icon: Video, 
     span: "md:col-span-4",
     aspect: "aspect-square",
-    height: "min-h-[280px]" // Ultrawide cinematic
+    height: "md:min-h-[280px]" // Ultrawide cinematic
   },
   { 
     id: "sunset", 
@@ -142,7 +143,17 @@ export const INTERESTS = [
     icon: Sun, 
     span: "md:col-span-7",
     aspect: "aspect-video md:aspect-auto",
-    height: "min-h-[450px]" // Ultrawide cinematic
+    height: "md:min-h-[450px]" // Ultrawide cinematic
+  },
+  {
+    id: "chess",
+    title: "Chess",
+    subtitle: "I play chess before sleep.",
+    icon: Crown,
+    span: "md:col-span-5",
+    aspect: "aspect-video md:aspect-auto",
+    height: "md:min-h-[350px]",
+    image: "https://images.unsplash.com/photo-1571236207041-5fb70cec466e"
   }
 ];
 /**

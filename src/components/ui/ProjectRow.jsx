@@ -1,10 +1,9 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
-const ProjectRow = ({ project, index }) => {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
+const ProjectRow = memo(({ project, index }) => {
   return (
     <Link to={`/work/${project.id}`} className="block group">
       <motion.div 
@@ -15,15 +14,15 @@ const ProjectRow = ({ project, index }) => {
         className="relative flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-16 border-b border-white/10 overflow-visible"
       >
         {/* Floating Image Preview (Desktop Only) */}
-        {!isMobile && (
-          <div className="absolute left-[40%] top-1/2 -translate-y-1/2 w-64 aspect-[16/10] z-0 pointer-events-none opacity-0 group-hover:opacity-100 group-hover:translate-x-12 transition-all duration-700 ease-[0.22,1,0.36,1]">
+        <div className="hidden md:block absolute left-[40%] top-1/2 -translate-y-1/2 w-64 aspect-[16/10] z-0 pointer-events-none opacity-0 group-hover:opacity-100 group-hover:translate-x-12 transition-all duration-700 ease-[0.22,1,0.36,1]">
             <img 
               src={project.image} 
               alt="" 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl scale-75 group-hover:scale-100"
             />
-          </div>
-        )}
+        </div>
 
         <div className="relative z-10 flex items-center gap-8 md:gap-16">
           {/* Index: Minimalist style */}
@@ -50,12 +49,12 @@ const ProjectRow = ({ project, index }) => {
           
           {/* Subtle Action Icon */}
           <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110">
-            <ArrowUpRight size={isMobile ? 20 : 28} className="transition-transform duration-500 group-hover:rotate-45" />
+            <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7 transition-transform duration-500 group-hover:rotate-45" />
           </div>
         </div>
       </motion.div>
     </Link>
   );
-};
+});
 
 export default ProjectRow;
