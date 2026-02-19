@@ -36,12 +36,11 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
       className="relative bg-black min-h-screen"
     >
-      {/* Dynamic Background Glow: Fixed performance on mobile */}
-      <div 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[60svh] opacity-[0.12] blur-[100px] md:blur-[150px] pointer-events-none z-0"
-        style={{ 
-          background: `radial-gradient(circle, ${project.color || '#0071e3'} 0%, transparent 70%)`,
-          willChange: 'transform'
+      {/* Dynamic Background Glow: Uses radial gradient instead of blur for GPU performance */}
+      <div
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[200%] h-[60svh] opacity-[0.12] pointer-events-none z-0"
+        style={{
+          background: `radial-gradient(ellipse at center, ${project.color || '#0071e3'} 0%, transparent 50%)`,
         }}
       />
 
@@ -104,6 +103,9 @@ const ProjectDetail = () => {
             <img 
               src={project.image} 
               alt={project.title} 
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
             />
           </motion.div>
@@ -126,7 +128,7 @@ const ProjectDetail = () => {
               </h2>
             </div>
             <div className="w-24 h-24 md:w-40 md:h-40 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-              <ArrowUpRight size={isMobile ? 32 : 56} className="text-white group-hover:rotate-45 transition-transform duration-500" />
+              <ArrowUpRight className="w-8 h-8 md:w-14 md:h-14 text-white group-hover:rotate-45 transition-transform duration-500" />
             </div>
           </div>
         </Link>
@@ -134,8 +136,5 @@ const ProjectDetail = () => {
     </motion.div>
   );
 };
-
-// Helper to handle responsive icon sizes
-const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
 export default ProjectDetail;

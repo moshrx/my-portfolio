@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion";
 import { Instagram, Github, Menu, X } from "lucide-react";
@@ -7,7 +7,7 @@ import { PERSONAL, NAV_LINKS } from "../../constants";
 /**
  * Magnetic Component: Optimized for Desktop only
  */
-const MagneticElement = ({ children, strength = 0.3 }) => {
+const MagneticElement = memo(({ children, strength = 0.3 }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -31,18 +31,22 @@ const MagneticElement = ({ children, strength = 0.3 }) => {
       {children}
     </motion.div>
   );
-};
+});
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  const handleScroll = useCallback(() => {
+    const isScrolled = window.scrollY > 30;
+    setScrolled(prev => prev !== isScrolled ? isScrolled : prev);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -104,6 +108,9 @@ const Navbar = () => {
         {/* MOBILE TOGGLE: Highest z-index to stay clickable */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
           className="md:hidden z-[120] relative w-10 h-10 flex items-center justify-center text-white focus:outline-none"
         >
           <AnimatePresence mode="wait">
@@ -124,6 +131,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-nav"
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
@@ -131,7 +139,9 @@ const Navbar = () => {
             // FIX: Set z-[110] (between nav and toggle) and use bg-black (Opaque)
             className="fixed inset-0 bg-black z-[110] flex flex-col px-8 pt-40"
           >
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none noise-overlay"
+            />
             
             <div className="flex flex-col gap-6 md:gap-8">
               <p className="text-[10px] uppercase tracking-[0.5em] text-zinc-500 font-bold mb-2">Sitemap</p>

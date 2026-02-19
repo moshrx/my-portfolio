@@ -5,7 +5,6 @@ import { PERSONAL, NAV_LINKS } from "../../constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
     <footer className="relative bg-black pt-24 md:pt-40 pb-12 px-6 md:px-12 border-t border-white/5 overflow-hidden">
@@ -23,7 +22,7 @@ const Footer = () => {
             <a href={`mailto:${PERSONAL.email}`} className="group inline-flex items-center gap-4 text-lg md:text-4xl font-medium tracking-tight break-all">
               {PERSONAL.email}
               <div className="p-3 rounded-full border border-white/10 group-hover:bg-primary transition-all">
-                <ArrowUpRight size={isMobile ? 20 : 28} />
+                <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7" />
               </div>
             </a>
           </div>

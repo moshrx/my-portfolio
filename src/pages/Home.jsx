@@ -60,19 +60,21 @@ const Home = () => {
       {/* INTERESTS BENTO GRID */}
       <section className="px-4 md:px-12 py-10 md:py-20 max-w-[1800px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
-          {INTERESTS.map((item) => (
+          {INTERESTS.map((item, index) => (
             <BentoCard 
               key={item.id}
-              className={`${item.span} min-h-[320px] md:${item.height} relative group overflow-hidden border-none bg-zinc-900 rounded-[32px] md:rounded-[48px]`}
+              className={`${item.span} min-h-[320px] ${item.height} relative group overflow-hidden border-none bg-zinc-900 rounded-[32px] md:rounded-[48px]`}
               title={item.title}
               subtitle={item.subtitle}
               icon={item.icon}
             >
               <div className="absolute inset-0 z-0">
                 <img 
-                  src={`/assets/interests/${item.id}.avif`} 
+                  src={item.image || `/assets/interests/${item.id}.avif`}
                   alt={item.title}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "low"}
+                  decoding="async"
                   className={`w-full h-full object-cover opacity-50 md:opacity-40 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-110`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />

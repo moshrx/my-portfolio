@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
-import noise from "../assets/noise.png";
 const Intent = () => {
   const appleEasing = [0.22, 1, 0.36, 1];
   const sectionRef = useRef(null);
@@ -11,7 +10,8 @@ const Intent = () => {
     offset: ["start end", "end start"],
   });
 
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -50 : -150]);
 
   const philosophies = useMemo(
   () => [
@@ -48,14 +48,14 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
 
       {/* Grain Overlay */}
 <div
-  className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay"
-  style={{ backgroundImage: `url(${noise})` }}
+  className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay noise-overlay"
 />
       {/* Editorial Header */}
       <div className="flex flex-col md:flex-row justify-between items-end mb-24 md:mb-40 gap-8 relative z-10">
         <motion.h2
-          initial={{ x: -60, opacity: 0, filter: "blur(8px)" }}
-          whileInView={{ x: 0, opacity: 1, filter: "blur(0px)" }}
+          initial={{ x: -40, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 1.2, ease: appleEasing }}
           className="text-[14vw] md:text-[8vw] font-bold tracking-tighter uppercase leading-[0.8] mix-blend-difference"
         >
@@ -77,11 +77,10 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
         {philosophies.map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 80, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: appleEasing }}
-            whileHover={{ y: -8 }}
             className={`flex flex-col ${
               item.align === "end"
                 ? "md:items-end text-left md:text-right"

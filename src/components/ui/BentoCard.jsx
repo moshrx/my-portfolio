@@ -1,14 +1,11 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 
-const BentoCard = ({ title, subtitle, className, icon: Icon, children }) => {
-  // Check if we're on mobile to toggle certain animations
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
+const BentoCard = memo(({ title, subtitle, className, icon: Icon, children }) => {
   return (
     <motion.div 
-      // Only lift on desktop; on mobile, we use a subtle scale-down on tap (active)
-      whileHover={!isMobile ? { y: -8 } : {}}
-      whileTap={isMobile ? { scale: 0.98 } : {}}
+      whileHover={{ y: -8 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`relative p-8 md:p-10 rounded-[32px] md:rounded-[40px] border border-white/5 flex flex-col justify-between min-h-[340px] md:min-h-[380px] overflow-hidden group ${className}`}
     >
@@ -21,7 +18,7 @@ const BentoCard = ({ title, subtitle, className, icon: Icon, children }) => {
       <div className="relative z-10 pointer-events-none">
         {Icon && (
           <Icon 
-            size={isMobile ? 28 : 32} 
+            size={32}
             className="text-white opacity-80 mb-4 group-hover:scale-110 transition-transform duration-700 transform-gpu" 
           />
         )}
@@ -41,6 +38,6 @@ const BentoCard = ({ title, subtitle, className, icon: Icon, children }) => {
       <div className="absolute inset-0 border border-white/5 rounded-[32px] md:rounded-[40px] pointer-events-none z-20" />
     </motion.div>
   );
-};
+});
 
 export default BentoCard;
