@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/animations/ScrollToTop";
+import ChatBot from "./components/ui/ChatBot";
 
 // Page components (Lazy loaded for performance)
 const Home = lazy(() => import("./pages/Home"));
@@ -13,6 +14,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Intent = lazy(() => import("./pages/Intent"));
+const Interests = lazy(() => import("./pages/Interests"));
 
 // Simple loading state to prevent layout shift
 const PageLoader = () => (
@@ -48,6 +50,7 @@ function App() {
               <Route path="/work" element={<Work />} />
               <Route path="/work/:id" element={<ProjectDetail />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/interests" element={<Interests />} />
               <Route path="/intent" element={<Intent />} />
               <Route path="/contact" element={<Contact />} />
               
@@ -59,6 +62,7 @@ function App() {
       </main>
 
       <Footer />
+      <ChatBot />
     </div>
   );
 }

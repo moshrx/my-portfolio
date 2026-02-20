@@ -7,6 +7,7 @@ import {
   Heart,
   Video,
   Crown,
+  Utensils,
 } from "lucide-react";
 
 /**
@@ -22,7 +23,9 @@ export const PERSONAL = {
   linkedin: "https://www.linkedin.com/in/moshrx/",
   discord: "@moshrx",
   role: "Creative Developer & Editor",
-  philosophy: "Merging spatial motion with clean digital architecture."
+  philosophy: "Merging spatial motion with clean digital architecture.",
+  tagline: "Just making things I'd want to use.",
+  bio: "I'm Mohammed — living in Charlottetown, and I spend most of my time making things that feel clean, expressive, and a little cinematic.",
 };
 
 /**
@@ -30,6 +33,7 @@ export const PERSONAL = {
  */
 export const NAV_LINKS = [
   { name: "Home", href: "/"},
+  { name: "Interests", href: "/interests", type: "internal" },
   { name: "Work", href: "/work" },
   { name: "Intent", href: "/intent", type: "internal" },
   { name: "Gallery", href: "/gallery", type: "internal" },
@@ -114,8 +118,8 @@ export const PROJECTS = [
 export const INTERESTS = [
   { 
     id: "barca", 
-    title: "The Blue & Red", 
-    subtitle: "More than a club.", 
+    title: "FC Barcelona", 
+    subtitle: "A Culer.", 
     icon: Heart, 
     span: "md:col-span-8",
     aspect: "aspect-video md:aspect-auto",
@@ -157,7 +161,17 @@ export const INTERESTS = [
     aspect: "aspect-video md:aspect-auto",
     height: "md:min-h-[350px]",
     image: "https://images.unsplash.com/photo-1571236207041-5fb70cec466e"
-  }
+  },
+  { 
+    id: "cooking", 
+    title: "Cooking", 
+    subtitle: "Cooking is actually fun.", 
+    icon: Utensils, 
+    span: "md:col-span-4",
+    aspect: "aspect-square",
+    height: "md:min-h-[280px]" // Ultrawide cinematic
+
+  },
 ];
 /**
  * 5. SOCIAL ECOSYSTEM
@@ -181,6 +195,18 @@ export const SOCIALS = [
     icon: Mail,
     handle: "Send Inquiry"
   }
+];
+
+export const MARQUEE_TAGS = [
+  "Culer",
+  "Coffee Enthusiast",
+  "Late Night Ideas",
+  "Recipe Experiments",
+  "Always Improving",
+  "Post-Workout Peace",
+  "Mes Que Un Club",
+  "Chess",
+  "Developer",
 ];
 
 export const GALLERY_IMAGES = Array.from({ length: 19 }, (_, i) => ({
