@@ -1,8 +1,77 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { PERSONAL } from "../constants";
 
 const Contact = () => {
   const appleEasing = [0.22, 1, 0.36, 1];
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitState, setSubmitState] = useState({
+    type: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setSubmitState({ type: "", message: "" });
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setSubmitState({
+        type: "error",
+        message: "Please complete all fields before sending.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const endpoint =
+        process.env.REACT_APP_CONTACT_ENDPOINT ||
+        "https://formsubmit.co/ajax/shareef3533@gmail.com";
+      const payload = new FormData();
+      payload.append("name", form.name);
+      payload.append("email", form.email);
+      payload.append("message", form.message);
+      payload.append("_subject", `Portfolio inquiry from ${form.name}`);
+      payload.append("_captcha", "false");
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send message right now.");
+      }
+
+      setSubmitState({
+        type: "success",
+        message: "Message sent successfully. I will reply soon.",
+      });
+
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message: "Something went wrong. Please try again in a moment.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <motion.div 
@@ -41,31 +110,75 @@ const Contact = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: appleEasing }}
+        onSubmit={handleSubmit}
         className="space-y-8 md:space-y-12 bg-white/[0.02] p-6 md:p-12 rounded-[24px] md:rounded-[40px] border border-white/5 backdrop-blur-xl"
       >
         <div className="space-y-2 group">
-          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Name</label>
+          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold" htmlFor="contact-name">
+            Name
+          </label>
           <input 
+            id="contact-name"
+            name="name"
             type="text" 
             placeholder="Your Name"
+            value={form.name}
+            onChange={handleChange}
+            required
             className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800" 
           />
         </div>
 
-        
+        <div className="space-y-2">
+          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold" htmlFor="contact-email">
+            Email
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            value={form.email}
+            onChange={handleChange}
+            required
+            className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800"
+          />
+        </div>
 
         <div className="space-y-2">
-          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">Message</label>
+          <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold" htmlFor="contact-message">
+            Message
+          </label>
           <textarea 
+            id="contact-message"
+            name="message"
             rows="3"
             placeholder="Tell me about your project"
+            value={form.message}
+            onChange={handleChange}
+            required
             className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800 resize-none" 
           />
         </div>
 
-        <button className="w-full py-6 md:py-8 bg-white text-black rounded-full font-bold text-lg md:text-xl hover:bg-primary hover:text-white transition-all transform active:scale-95">
-          Send Message
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full py-6 md:py-8 bg-white text-black rounded-full font-bold text-lg md:text-xl hover:bg-primary hover:text-white transition-all transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? "Sending..." : "Send Message"}
         </button>
+
+        {submitState.message ? (
+          <p
+            className={`text-sm ${
+              submitState.type === "error" ? "text-red-400" : "text-green-400"
+            }`}
+            role="status"
+          >
+            {submitState.message}
+          </p>
+        ) : null}
       </motion.form>
     </motion.div>
   );
