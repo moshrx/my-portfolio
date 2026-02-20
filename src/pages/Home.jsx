@@ -1,8 +1,12 @@
+import { lazy, Suspense } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Link } from "react-router-dom"; // Added for the CTA link
-import { PERSONAL, INTERESTS } from "../constants";
-import BentoCard from "../components/ui/BentoCard";
+import { Link } from "react-router-dom";
+import { PERSONAL } from "../constants";
+import IntroSection from "../components/ui/IntroSection";
+import Marquee from "../components/ui/Marquee";
 import { ArrowUpRight } from "lucide-react";
+
+const HeroScene = lazy(() => import("../components/animations/HeroScene"));
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -25,66 +29,65 @@ const Home = () => {
     >
       {/* HERO SECTION */}
       <section className="relative h-[100svh] flex items-center justify-center px-4 md:px-6 overflow-hidden">
-        <motion.div 
-          style={{ 
-            y: textY, 
-            opacity: textOpacity, 
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/background-img/bg-img.jpg"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-full object-cover object-center scale-105"
+          />
+          {/* Dark overlays for text readability and cinematic mood */}
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        </div>
+
+        {/* Floating particle dust overlay */}
+        <Suspense fallback={null}>
+          <HeroScene />
+        </Suspense>
+
+        <motion.div
+          style={{
+            y: textY,
+            opacity: textOpacity,
             scale: heroScale,
-            willChange: "transform, opacity" 
-          }} 
+            willChange: "transform, opacity"
+          }}
           className="text-center z-10 w-full"
         >
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, letterSpacing: "0.1em" }}
             animate={{ opacity: 1, letterSpacing: "0.4em" }}
             className="text-primary font-mono uppercase text-[9px] md:text-[10px] mb-6 md:mb-8 block font-black"
           >
             {PERSONAL.location}
           </motion.span>
-          
+
           <h1 className="text-[17vw] md:text-[11vw] font-bold tracking-tighter leading-[0.85] md:leading-[0.8] uppercase select-none pointer-events-none">
-            CRAFTING <br /> 
+            CRAFTING <br />
             <span className="text-secondary italic font-light tracking-tight">MOMENTS<span className="text-primary">.</span></span>
           </h1>
         </motion.div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20 hidden md:block">
-          <motion.div 
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20 hidden md:block z-10">
+          <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" 
+            className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"
           />
         </div>
       </section>
 
-      {/* INTERESTS BENTO GRID */}
-      <section className="px-4 md:px-12 py-10 md:py-20 max-w-[1800px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
-          {INTERESTS.map((item, index) => (
-            <BentoCard 
-              key={item.id}
-              className={`${item.span} min-h-[320px] ${item.height} relative group overflow-hidden border-none bg-zinc-900 rounded-[32px] md:rounded-[48px]`}
-              title={item.title}
-              subtitle={item.subtitle}
-              icon={item.icon}
-            >
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src={item.image || `/assets/interests/${item.id}.avif`}
-                  alt={item.title}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "low"}
-                  decoding="async"
-                  className={`w-full h-full object-cover opacity-50 md:opacity-40 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-110`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              </div>
-            </BentoCard>
-          ))}
-        </div>
-      </section>
+      {/* INTRO */}
+      <IntroSection />
 
-      {/* NEW SECTION: "View Work" CTA */}
+      {/* MARQUEE */}
+      <Marquee />
+
+      {/* CTA */}
       <section className="px-4 md:px-12 py-20 md:py-40 flex justify-center">
         <Link to="/work" className="group relative flex flex-col items-center">
             <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">Click to enter</span>
