@@ -18,6 +18,9 @@ export const PERSONAL = {
   email: "shareef3533@gmail.com",
   instagram: "mo_sh_r",
   github: "moshrx",
+  x: "moshrx",
+  linkedin: "https://www.linkedin.com/in/moshrx/",
+  discord: "@moshrx",
   role: "Creative Developer & Editor",
   philosophy: "Merging spatial motion with clean digital architecture."
 };

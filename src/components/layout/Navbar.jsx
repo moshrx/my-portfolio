@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion";
-import { Instagram, Github, Menu, X } from "lucide-react";
+import { Menu, X, Instagram, Github, Linkedin, MessageCircle } from "lucide-react";
 import { PERSONAL, NAV_LINKS } from "../../constants";
 
 /**
@@ -32,6 +32,19 @@ const MagneticElement = memo(({ children, strength = 0.3 }) => {
     </motion.div>
   );
 });
+
+const XIcon = ({ size = 18, className = "" }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill="currentColor"
+    aria-hidden="true"
+    className={className}
+  >
+    <path d="M18.244 2H21.5l-7.12 8.137L22 22h-5.95l-4.66-6.093L6.06 22H2.8l7.61-8.693L2 2h6.1l4.21 5.555L18.244 2Zm-1.14 18h1.8L7.12 3.895H5.2L17.104 20Z" />
+  </svg>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,15 +104,30 @@ const Navbar = () => {
 
           <div className="h-4 w-[1px] bg-white/10 mx-2" />
 
-          <div className="flex gap-6 text-zinc-400">
+          <div className="flex items-center gap-5 text-zinc-400">
             <MagneticElement strength={0.5}>
-              <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
+              <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
             </MagneticElement>
             <MagneticElement strength={0.5}>
-              <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="hover:text-white transition-all">
+              <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="GitHub">
                 <Github size={18} />
+              </a>
+            </MagneticElement>
+            <MagneticElement strength={0.5}>
+              <a href={`https://x.com/${PERSONAL.x}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="X">
+                <XIcon size={16} />
+              </a>
+            </MagneticElement>
+            <MagneticElement strength={0.5}>
+              <a href={PERSONAL.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+            </MagneticElement>
+            <MagneticElement strength={0.5}>
+              <a href={`https://discord.com/users/${PERSONAL.discord.replace("@", "")}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Discord">
+                <MessageCircle size={18} />
               </a>
             </MagneticElement>
           </div>
@@ -166,9 +194,22 @@ const Navbar = () => {
             </div>
 
             <div className="mt-auto pb-12 flex justify-between items-end border-t border-white/5 pt-8">
-              <div className="flex gap-8">
-                <a href={`https://instagram.com/${PERSONAL.instagram}`} className="text-xs font-bold uppercase tracking-widest text-zinc-400">Ig</a>
-                <a href={`https://github.com/${PERSONAL.github}`} className="text-xs font-bold uppercase tracking-widest text-zinc-400">Gh</a>
+              <div className="flex gap-6 text-zinc-400">
+                <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
+                  <Instagram size={18} />
+                </a>
+                <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="GitHub">
+                  <Github size={18} />
+                </a>
+                <a href={`https://x.com/${PERSONAL.x}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="X">
+                  <XIcon size={16} />
+                </a>
+                <a href={PERSONAL.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
+                  <Linkedin size={18} />
+                </a>
+                <a href={`https://discord.com/users/${PERSONAL.discord.replace("@", "")}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Discord">
+                  <MessageCircle size={18} />
+                </a>
               </div>
               <p className="text-[9px] uppercase tracking-widest text-zinc-600">PEI, Canada</p>
             </div>
