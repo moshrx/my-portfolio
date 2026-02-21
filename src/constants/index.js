@@ -137,7 +137,7 @@ export const INTERESTS = [
   { 
     id: "video", 
     title: "Video & Motion", 
-    subtitle: "I just found out video editing is fun.", 
+    subtitle: "I just found out video editing is cool.", 
     icon: Video, 
     span: "md:col-span-4",
     aspect: "aspect-square",
