@@ -1,11 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 // Layout components (Loaded immediately)
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/animations/ScrollToTop";
-import ChatBot from "./components/ui/ChatBot";
 
 // Page components (Lazy loaded for performance)
 const Home = lazy(() => import("./pages/Home"));
@@ -15,6 +14,7 @@ const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Intent = lazy(() => import("./pages/Intent"));
 const Interests = lazy(() => import("./pages/Interests"));
+const ChatBot = lazy(() => import("./components/ui/ChatBot"));
 
 // Simple loading state to prevent layout shift
 const PageLoader = () => (
@@ -25,6 +25,26 @@ const PageLoader = () => (
 
 function App() {
   const location = useLocation();
+  const [showChatBot, setShowChatBot] = useState(false);
+
+  useEffect(() => {
+    const revealChat = () => setShowChatBot(true);
+    const onFirstInteraction = () => {
+      revealChat();
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+
+    const timer = window.setTimeout(revealChat, 2500);
+    window.addEventListener("pointerdown", onFirstInteraction, { passive: true });
+    window.addEventListener("keydown", onFirstInteraction);
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+  }, []);
 
   return (
     <div className="relative bg-[#050505] text-white selection:bg-primary/30 antialiased overflow-x-hidden">
@@ -62,7 +82,11 @@ function App() {
       </main>
 
       <Footer />
-      <ChatBot />
+      {showChatBot ? (
+        <Suspense fallback={null}>
+          <ChatBot />
+        </Suspense>
+      ) : null}
     </div>
   );
 }

@@ -106,6 +106,7 @@ const ProjectDetail = () => {
               loading="eager"
               fetchPriority="high"
               decoding="async"
+              sizes="100vw"
               className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
             />
           </motion.div>

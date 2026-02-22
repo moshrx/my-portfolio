@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PERSONAL } from "../constants";
@@ -10,6 +10,7 @@ const HeroScene = lazy(() => import("../components/animations/HeroScene"));
 
 const Home = () => {
   const { scrollY } = useScroll();
+  const [shouldRenderHeroScene, setShouldRenderHeroScene] = useState(false);
   
   const smoothY = useSpring(scrollY, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
@@ -18,6 +19,12 @@ const Home = () => {
   const heroScale = useTransform(smoothY, [0, 600], [1, 0.98]);
 
   const appleEasing = [0.22, 1, 0.36, 1];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const isDesktop = window.innerWidth >= 1024;
+    setShouldRenderHeroScene(!mediaQuery.matches && isDesktop);
+  }, []);
 
   return (
     <motion.div 
@@ -31,13 +38,21 @@ const Home = () => {
       <section className="relative h-[100svh] flex items-center justify-center px-4 md:px-6 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/assets/background-img/bg-img.jpg"
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-            className="w-full h-full object-cover object-center scale-105"
-          />
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/assets/background-img/bg-img-mobile.jpg"
+            />
+            <img
+              src="/assets/background-img/bg-img.jpg"
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              width="1920"
+              height="1440"
+              className="w-full h-full object-cover object-center scale-105"
+            />
+          </picture>
           {/* Dark overlays for text readability and cinematic mood */}
           <div className="absolute inset-0 bg-black/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
@@ -45,9 +60,11 @@ const Home = () => {
         </div>
 
         {/* Floating particle dust overlay */}
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
+        {shouldRenderHeroScene ? (
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
+        ) : null}
 
         <motion.div
           style={{
