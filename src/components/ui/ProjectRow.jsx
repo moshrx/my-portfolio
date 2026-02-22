@@ -20,6 +20,7 @@ const ProjectRow = memo(({ project, index }) => {
               alt="" 
               loading="lazy"
               decoding="async"
+              sizes="256px"
               className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700 shadow-2xl scale-75 group-hover:scale-100"
             />
         </div>

@@ -26,6 +26,7 @@ const GalleryImage = memo(({ img, i }) => (
         loading={i < 3 ? "eager" : "lazy"}
         fetchPriority={i < 3 ? "high" : "low"}
         decoding="async"
+        sizes="(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 30vw"
         className="w-full h-full object-cover aspect-[4/5] sm:aspect-square md:aspect-[3/4] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
       />
     </div>

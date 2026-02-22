@@ -57,6 +57,7 @@ const Interests = () => {
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchPriority={index === 0 ? "high" : "low"}
                   decoding="async"
+                  sizes="(max-width: 767px) 92vw, (max-width: 1279px) 48vw, 33vw"
                   className="w-full h-full object-cover opacity-50 md:opacity-40 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />

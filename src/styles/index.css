@@ -22,10 +22,6 @@
     text-rendering: optimizeSpeed;
   }
 
-  img, video {
-    content-visibility: auto;
-  }
-
   :focus-visible {
     outline: 2px solid hsl(212 100% 48%);
     outline-offset: 3px;

@@ -6,6 +6,7 @@ const HeroScene = () => {
   const particlesRef = useRef([]);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const dimensionsRef = useRef({ w: 0, h: 0 });
+  const visibleRef = useRef(true);
 
   const PARTICLE_COUNT = 60;
 
@@ -27,6 +28,11 @@ const HeroScene = () => {
   }, []);
 
   const animate = useCallback((ctx, time) => {
+    if (!visibleRef.current) {
+      animationRef.current = requestAnimationFrame((t) => animate(ctx, t));
+      return;
+    }
+
     const { w, h } = dimensionsRef.current;
     const mx = mouseRef.current.x;
     const my = mouseRef.current.y;
@@ -91,12 +97,12 @@ const HeroScene = () => {
       canvas.height = rect.height * dpr;
       canvas.style.width = rect.width + "px";
       canvas.style.height = rect.height + "px";
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       dimensionsRef.current = { w: rect.width, h: rect.height };
       initParticles(rect.width, rect.height);
     };
 
-    const handleMouse = (e) => {
+    const handlePointerMove = (e) => {
       const rect = canvas.parentElement.getBoundingClientRect();
       mouseRef.current = {
         x: (e.clientX - rect.left) / rect.width,
@@ -104,14 +110,21 @@ const HeroScene = () => {
       };
     };
 
+    const handleVisibility = () => {
+      visibleRef.current = document.visibilityState === "visible";
+    };
+
     resize();
+    handleVisibility();
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    document.addEventListener("visibilitychange", handleVisibility);
     animationRef.current = requestAnimationFrame((t) => animate(ctx, t));
 
     return () => {
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("visibilitychange", handleVisibility);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, [animate, initParticles]);
