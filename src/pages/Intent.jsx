@@ -42,7 +42,7 @@ const Intent = () => {
       ref={sectionRef}
       viewport={{ once: true }}
       transition={{ duration: 1, ease: appleEasing }}
-className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
+className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
       {/* Subtle Vertical Line */}
       <div className="absolute left-1/2 top-0 h-full w-px bg-zinc-800/20 hidden md:block pointer-events-none" />
 
@@ -51,13 +51,13 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
   className="pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-overlay noise-overlay"
 />
       {/* Editorial Header */}
-      <div className="flex flex-col md:flex-row justify-between items-end mb-24 md:mb-40 gap-8 relative z-10">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 md:mb-24 gap-8 relative z-10">
         <motion.h2
           initial={{ x: -40, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: appleEasing }}
-          className="text-[14vw] md:text-[8vw] font-bold tracking-tighter uppercase leading-[0.8] mix-blend-difference"
+          className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold tracking-tight uppercase leading-none mix-blend-difference"
         >
           Philosophy<span className="text-primary">.</span>
         </motion.h2>
@@ -66,14 +66,14 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1, ease: appleEasing }}
-          className="max-w-xs text-zinc-500 text-sm md:text-base uppercase tracking-widest leading-relaxed"
+          className="max-w-sm text-zinc-500 text-sm md:text-base uppercase tracking-widest leading-relaxed"
         >
           Moving beyond technical execution to find the visual soul of a product.
         </motion.p>
       </div>
 
       {/* Philosophy List */}
-      <div className="flex flex-col gap-32 md:gap-56 relative z-10">
+      <div className="flex flex-col gap-20 md:gap-28 relative z-10">
         {philosophies.map((item, i) => (
           <motion.div
             key={i}
@@ -92,11 +92,11 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
                 [{item.number}]
               </span>
 
-              <h3 className="text-4xl md:text-7xl font-bold tracking-tighter uppercase mb-6 md:mb-8 transition-all duration-700 group-hover:italic">
+              <h3 className="text-3xl md:text-5xl font-bold tracking-tight uppercase mb-5 md:mb-6 transition-all duration-700 group-hover:italic">
                 {item.title}
               </h3>
 
-              <p className="text-lg md:text-2xl text-zinc-400 leading-relaxed font-light antialiased">
+              <p className="text-base md:text-xl text-zinc-400 leading-relaxed font-light antialiased">
                 {item.desc}
               </p>
             </div>
@@ -109,7 +109,7 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.6 }}
         transition={{ delay: 0.5, duration: 1.2 }}
-        className="mt-40 text-center text-zinc-500 uppercase tracking-[0.3em] text-xs relative z-10"
+        className="mt-24 md:mt-32 text-center text-zinc-500 uppercase tracking-[0.3em] text-xs relative z-10"
       >
         Built with intention. Reduced with discipline.
       </motion.p>
@@ -119,7 +119,7 @@ className="relative py-32 md:py-56 px-6 md:px-12 max-w-[1400px] mx-auto"    >
   style={{ y: parallaxY }}
   className="absolute inset-0 flex items-end justify-center pointer-events-none select-none"
 >
-  <h2 className="text-[30vw] font-black uppercase tracking-tighter opacity-[0.03] whitespace-nowrap">
+  <h2 className="text-[18rem] font-black uppercase tracking-tight opacity-[0.03] whitespace-nowrap">
     Intent
   </h2>
 </motion.div>

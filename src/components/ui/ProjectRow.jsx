@@ -11,7 +11,7 @@ const ProjectRow = memo(({ project, index }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: index * 0.05 }}
-        className="relative flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-16 border-b border-white/10 overflow-visible"
+        className="relative flex flex-col md:flex-row items-start md:items-center justify-between py-8 md:py-10 border-b border-white/10 overflow-visible"
       >
         {/* Floating Image Preview (Desktop Only) */}
         <div className="hidden md:block absolute left-[40%] top-1/2 -translate-y-1/2 w-64 aspect-[16/10] z-0 pointer-events-none opacity-0 group-hover:opacity-100 group-hover:translate-x-12 transition-all duration-700 ease-[0.22,1,0.36,1]">
@@ -25,19 +25,19 @@ const ProjectRow = memo(({ project, index }) => {
             />
         </div>
 
-        <div className="relative z-10 flex items-center gap-8 md:gap-16">
+        <div className="relative z-10 flex items-center gap-5 md:gap-10 min-w-0">
           {/* Index: Minimalist style */}
           <span className="font-mono text-zinc-800 text-[10px] md:text-sm font-black group-hover:text-primary transition-colors">
             {String(index + 1).padStart(2, '0')}
           </span>
           
           {/* Title: Mixed weight on hover */}
-          <h3 className="text-[12vw] md:text-[8vw] font-black tracking-tighter uppercase leading-[0.8] transition-all duration-700 group-hover:italic">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-black tracking-tight uppercase leading-none transition-all duration-700 group-hover:italic break-words">
             {project.title}
           </h3>
         </div>
 
-        <div className="relative z-10 flex items-end justify-between w-full md:w-auto gap-12 mt-8 md:mt-0">
+        <div className="relative z-10 flex items-end justify-between w-full md:w-auto gap-8 mt-6 md:mt-0">
           {/* Meta Info */}
           <div className="flex flex-col items-start md:items-end">
             <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-1">
@@ -49,8 +49,8 @@ const ProjectRow = memo(({ project, index }) => {
           </div>
           
           {/* Subtle Action Icon */}
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110">
-            <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7 transition-transform duration-500 group-hover:rotate-45" />
+          <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500 group-hover:scale-110 shrink-0">
+            <ArrowUpRight className="w-5 h-5 transition-transform duration-500 group-hover:rotate-45" />
           </div>
         </div>
       </motion.div>

@@ -5,13 +5,13 @@ const appleEasing = [0.22, 1, 0.36, 1];
 
 const IntroSection = () => {
   return (
-    <section className="px-6 md:px-12 py-24 md:py-44 max-w-[1800px] mx-auto">
+    <section className="px-6 md:px-12 py-20 md:py-28 max-w-[1200px] mx-auto">
       <motion.p
         initial={{ opacity: 0, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: appleEasing }}
-        className="text-primary font-mono text-[10px] uppercase tracking-[0.4em] font-black mb-10 md:mb-16"
+        className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-8 md:mb-10"
       >
         About — 001
       </motion.p>
@@ -21,7 +21,7 @@ const IntroSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.2, ease: appleEasing }}
-        className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase leading-[0.9] mb-10 md:mb-14 max-w-4xl"
+        className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-tight mb-8 md:mb-10 max-w-4xl"
       >
         {PERSONAL.tagline}
       </motion.h2>
@@ -31,7 +31,7 @@ const IntroSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 1.2, delay: 0.15, ease: appleEasing }}
-        className="text-lg md:text-2xl text-zinc-400 leading-relaxed font-light max-w-2xl"
+        className="text-base md:text-xl text-zinc-400 leading-relaxed font-light max-w-2xl"
       >
         {PERSONAL.bio}
       </motion.p>

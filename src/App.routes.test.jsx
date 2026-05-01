@@ -95,6 +95,20 @@ beforeAll(() => {
     value: IntersectionObserverMock,
     writable: true,
   });
+
+  Object.defineProperty(window, "matchMedia", {
+    value: (query) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    }),
+    writable: true,
+  });
 });
 
 const renderRoute = (path) => {
@@ -118,7 +132,7 @@ test("renders work page", async () => {
 
 test("renders project detail page", async () => {
   renderRoute("/work/0");
-  const matches = await screen.findAllByText(/fat cat bakery/i);
+  const matches = await screen.findAllByText(/pickup ai/i);
   expect(matches.length).toBeGreaterThan(0);
 });
 

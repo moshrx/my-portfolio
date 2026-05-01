@@ -13,7 +13,7 @@ const ProjectCard = ({ project }) => {
       // Optimization: Only lift on desktop. Scale slightly on tap for mobile.
       whileHover={!isMobile ? { y: -10 } : {}}
       whileTap={isMobile ? { scale: 0.98 } : {}}
-      className="group relative bg-zinc-900/50 border border-white/5 rounded-[32px] md:rounded-[40px] overflow-hidden backdrop-blur-sm"
+      className="group relative bg-zinc-900/50 border border-white/5 rounded-3xl overflow-hidden backdrop-blur-sm"
     >
       {/* 1. Image/Preview Container */}
       <div className="aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-zinc-900">
@@ -24,9 +24,9 @@ const ProjectCard = ({ project }) => {
       </div>
       
       {/* 2. Content Container */}
-      <div className="p-8 md:p-10">
+      <div className="p-6 md:p-8">
         <div className="flex justify-between items-start mb-6">
-          <h3 className="text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors italic uppercase tracking-tighter leading-none">
+          <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors italic uppercase tracking-tight leading-tight">
             {project.title}
           </h3>
           <a 
@@ -39,7 +39,7 @@ const ProjectCard = ({ project }) => {
           </a>
         </div>
         
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8 line-clamp-3 md:line-clamp-2 antialiased">
+        <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-6 line-clamp-3 md:line-clamp-2 antialiased">
           {project.description}
         </p>
         

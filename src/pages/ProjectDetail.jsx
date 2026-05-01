@@ -44,27 +44,27 @@ const ProjectDetail = () => {
         }}
       />
 
-      <div className="relative z-10 pt-32 md:pt-48 px-6 md:px-12 max-w-[1800px] mx-auto">
+      <div className="relative z-10 pt-28 md:pt-36 px-5 md:px-12 max-w-[1400px] mx-auto">
         
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-4 mb-12 md:mb-24 text-[10px] uppercase tracking-[0.4em] font-black text-zinc-500">
+        <nav className="flex items-center gap-4 mb-10 md:mb-16 text-[10px] uppercase tracking-[0.35em] font-black text-zinc-500">
           <Link to="/work" className="hover:text-white transition-colors">Work</Link>
           <ChevronRight size={10} className="text-zinc-800" />
           <span className="text-white">{project.title}</span>
         </nav>
 
         {/* Hero Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 mb-24 md:mb-48">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
           <div className="lg:col-span-8">
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, ease: appleEasing }}
             >
-              <h1 className="text-[15vw] md:text-[9vw] font-bold tracking-tighter leading-[0.8] uppercase mb-10 md:mb-16">
+              <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold tracking-tight leading-none uppercase mb-8 md:mb-10 break-words">
                 {project.title}<span style={{ color: project.color }}>.</span>
               </h1>
-              <p className="text-xl md:text-5xl text-zinc-400 font-medium leading-[1.1] tracking-tight max-w-4xl">
+              <p className="text-lg md:text-2xl lg:text-3xl text-zinc-400 font-medium leading-snug tracking-normal max-w-4xl">
                 {project.description}
               </p>
             </motion.div>
@@ -87,7 +87,7 @@ const ProjectDetail = () => {
               href={project.link} target="_blank" rel="noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-between p-8 bg-white text-black rounded-[32px] font-black uppercase text-xs tracking-[0.2em] group transition-all duration-500"
+              className="flex items-center justify-between p-5 md:p-6 bg-white text-black rounded-2xl font-black uppercase text-xs tracking-[0.18em] group transition-all duration-500"
             >
               Launch Site <ArrowUpRight size={22} className="group-hover:rotate-45 transition-transform duration-500" />
             </motion.a>
@@ -97,7 +97,7 @@ const ProjectDetail = () => {
         {/* Parallax Image Section */}
         <div 
           ref={containerRef}
-          className="relative aspect-[4/5] md:aspect-[21/9] w-full rounded-[40px] md:rounded-[60px] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl"
+          className="relative aspect-[4/5] md:aspect-[21/9] w-full rounded-3xl overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl"
         >
           <motion.div style={{ scale: imageScale, y: imageY }} className="w-full h-full">
             <img 
@@ -114,22 +114,22 @@ const ProjectDetail = () => {
       </div>
 
       {/* Infinite Loop: Next Project Section */}
-      <section className="mt-32 md:mt-60 border-t border-white/5">
+      <section className="mt-24 md:mt-32 border-t border-white/5">
         <Link 
           to={`/work/${nextProject.id}`}
-          className="group block py-24 md:py-40 px-6 md:px-12 hover:bg-zinc-900/30 transition-colors"
+          className="group block py-20 md:py-28 px-5 md:px-12 hover:bg-zinc-900/30 transition-colors"
         >
-          <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="text-center md:text-left">
               <span className="text-primary text-[10px] uppercase tracking-[0.5em] font-black mb-6 block">
                 Up Next
               </span>
-              <h2 className="text-[12vw] md:text-[7vw] font-bold tracking-tighter uppercase leading-none group-hover:italic transition-all duration-700">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight uppercase leading-none group-hover:italic transition-all duration-700">
                 {nextProject.title}
               </h2>
             </div>
-            <div className="w-24 h-24 md:w-40 md:h-40 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-              <ArrowUpRight className="w-8 h-8 md:w-14 md:h-14 text-white group-hover:rotate-45 transition-transform duration-500" />
+            <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+              <ArrowUpRight className="w-7 h-7 md:w-10 md:h-10 text-white group-hover:rotate-45 transition-transform duration-500" />
             </div>
           </div>
         </Link>

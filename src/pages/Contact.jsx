@@ -79,17 +79,17 @@ const Contact = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       // Responsive grid: cols-1 on mobile, lg:cols-2 for desktop
-      className="pt-32 md:pt-40 px-4 md:px-12 pb-20 md:pb-32 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 max-w-7xl mx-auto"
+      className="pt-28 md:pt-36 px-5 md:px-12 pb-20 md:pb-28 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 max-w-6xl mx-auto"
     >
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: appleEasing }}
       >
-        <h1 className="text-[16vw] md:text-[10vw] font-bold tracking-tighter leading-none mb-8 md:mb-12">
+        <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold tracking-tight leading-none mb-6 md:mb-8">
           TALK<span className="text-primary">.</span>
         </h1>
-        <p className="text-lg md:text-2xl text-zinc-400 md:text-secondary mb-12 md:mb-20 max-w-md leading-relaxed">
+        <p className="text-base md:text-xl text-zinc-400 md:text-secondary mb-10 md:mb-14 max-w-md leading-relaxed">
           Currently based in {PERSONAL.location}. <br className="hidden md:block" />
           Open for collaborations that value motion and design.
         </p>
@@ -98,7 +98,7 @@ const Contact = () => {
           <p className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-zinc-600 font-bold">Direct Email</p>
           <a 
             href={`mailto:${PERSONAL.email}`} 
-            className="text-xl md:text-3xl font-bold hover:text-primary transition-colors underline underline-offset-8 decoration-1 break-words"
+            className="text-lg md:text-2xl font-bold hover:text-primary transition-colors underline underline-offset-8 decoration-1 break-words"
           >
             {PERSONAL.email}
           </a>
@@ -111,7 +111,7 @@ const Contact = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: appleEasing }}
         onSubmit={handleSubmit}
-        className="space-y-8 md:space-y-12 bg-white/[0.02] p-6 md:p-12 rounded-[24px] md:rounded-[40px] border border-white/5 backdrop-blur-xl"
+        className="space-y-7 md:space-y-9 bg-white/[0.02] p-5 md:p-8 rounded-3xl border border-white/5 backdrop-blur-xl"
       >
         <div className="space-y-2 group">
           <label className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold" htmlFor="contact-name">
@@ -125,7 +125,7 @@ const Contact = () => {
             value={form.name}
             onChange={handleChange}
             required
-            className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800" 
+            className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors text-lg md:text-xl font-light placeholder:text-zinc-800" 
           />
         </div>
 
@@ -141,7 +141,7 @@ const Contact = () => {
             value={form.email}
             onChange={handleChange}
             required
-            className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800"
+            className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors text-lg md:text-xl font-light placeholder:text-zinc-800"
           />
         </div>
 
@@ -157,14 +157,14 @@ const Contact = () => {
             value={form.message}
             onChange={handleChange}
             required
-            className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-primary transition-colors text-xl md:text-2xl font-light placeholder:text-zinc-800 resize-none" 
+            className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-primary transition-colors text-lg md:text-xl font-light placeholder:text-zinc-800 resize-none" 
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-6 md:py-8 bg-white text-black rounded-full font-bold text-lg md:text-xl hover:bg-primary hover:text-white transition-all transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full py-4 md:py-5 bg-white text-black rounded-full font-bold text-base md:text-lg hover:bg-primary hover:text-white transition-all transform active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
