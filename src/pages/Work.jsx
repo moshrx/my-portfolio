@@ -12,10 +12,10 @@ const Work = () => {
       exit={{ opacity: 0 }}
       className="bg-black min-h-screen"
     >
-      <section className="px-6 md:px-12 pt-32 md:pt-48 pb-32 max-w-[1800px] mx-auto">
+      <section className="px-5 md:px-12 pt-28 md:pt-36 pb-24 md:pb-28 max-w-[1400px] mx-auto">
         
         {/* Header: Large but functional */}
-        <div className="mb-16 md:mb-32">
+        <div className="mb-12 md:mb-20">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -24,7 +24,7 @@ const Work = () => {
             <span className="text-primary font-mono uppercase text-[10px] tracking-[0.4em] mb-6 block font-black">
               Index — 2026
             </span>
-            <h1 className="text-[15vw] md:text-[10vw] font-bold tracking-tighter leading-[0.8] uppercase">
+            <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold tracking-tight leading-none uppercase">
               Current <br />
               <span className="text-secondary italic font-light">Stacks<span className="text-primary">.</span></span>
             </h1>
@@ -32,7 +32,7 @@ const Work = () => {
         </div>
 
         {/* Project List Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-white/10 pb-8 gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 border-b border-white/10 pb-6 gap-4">
           <div className="flex items-center gap-4">
             <h2 className="text-[10px] uppercase tracking-[0.4em] font-black text-zinc-500">
               Project Directory
@@ -62,7 +62,7 @@ const Work = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-32 text-center"
+          className="mt-20 md:mt-24 text-center"
         >
           <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest mb-8">
             Looking for something specific?

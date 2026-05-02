@@ -45,8 +45,41 @@ export const NAV_LINKS = [
  * Added 'color' for theme-switching and 'year' for editorial feel.
  */
 export const PROJECTS = [
-  { 
+  {
     id: 0,
+    title: "PickUp AI",
+    year: "2026",
+    link: "https://www.listedpei.ca/pickupai",
+    tag: "Featured Local AI",
+    description: "AI phone agent for PEI businesses that answers calls, handles FAQs, and routes bookings 24/7. Built around fast trial intent, live demo calls, and practical coverage for tourist-season call volume.",
+    tech: ["React", "AI Phone Agent", "Local Business"],
+    color: "#8B5CF6",
+    image: "/assets/projects/pickup-ai.png"
+  },
+  {
+    id: 1,
+    title: "ListedPEI",
+    year: "2026",
+    link: "https://www.listedpei.ca/",
+    tag: "Local AI Tool",
+    description: "Free AI-powered Google Business Profile kit generator for PEI small businesses. Focused on local SEO, fast onboarding, and high-converting profile content.",
+    tech: ["React", "Local SEO", "Gemini AI"],
+    color: "#0EA5E9",
+    image: "/assets/projects/listedpei.png"
+  },
+  {
+    id: 2,
+    title: "Pagebind",
+    year: "2026",
+    link: "https://pagebind.netlify.app/",
+    tag: "PDF Tool",
+    description: "Invite-only ebook generator that turns pasted text into a clean, formatted PDF. Includes structured parsing, style templates, font options, previews, and download capture.",
+    tech: ["React", "PDF Render", "Product UI"],
+    color: "#4F46E5",
+    image: "/assets/projects/pagebind.png"
+  },
+  { 
+    id: 3,
     title: "Fat Cat Bakery",
     year: "2026",
     link: "https://fatcatbakery.netlify.app/",
@@ -57,7 +90,7 @@ export const PROJECTS = [
     image: "/assets/projects/fatcat.jpg"
   },
   {
-    id: 1,
+    id: 4,
     title: "Cricket PEI",
     year: "2026",
     link: "https://cricketpei.ca",
@@ -68,7 +101,7 @@ export const PROJECTS = [
     image: "/assets/projects/cricket.jpg"
   },
   {
-    id: 2, // Red Soil moved up to 2nd
+    id: 5,
     title: "Red Soil",
     year: "2026",
     link: "https://redsoil.netlify.app/",
@@ -79,7 +112,7 @@ export const PROJECTS = [
     image: "/assets/projects/redsoil.jpg"
   },
   {
-    id: 3, // New Lootbins entry
+    id: 6,
     title: "Lootbins Canada",
     year: "2026",
     link: "https://www.lootbinscanada.com/",
@@ -87,10 +120,10 @@ export const PROJECTS = [
     description: "Inventory-focused retail site. Clean layout designed to handle high product volume and clear navigation.",
     tech: ["Shopify", "UI Design", "E-commerce"],
     color: "#E63946",
-    image: "/assets/projects/lootbins.jpg" // Make sure to add this image
+    image: "/assets/projects/lootbins.jpg"
   },
   {
-    id: 4,
+    id: 7,
     title: "Moe's Latte",
     year: "2026",
     link: "https://moes-latte.netlify.app/",
@@ -101,7 +134,7 @@ export const PROJECTS = [
     image: "/assets/projects/moes.jpg"
   },
   {
-    id: 5,
+    id: 8,
     title: "Pink Crow",
     year: "2026",
     link: "https://pinkcrow.netlify.app/",

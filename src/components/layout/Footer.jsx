@@ -7,22 +7,22 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black pt-24 md:pt-40 pb-12 px-6 md:px-12 border-t border-white/5 overflow-hidden">
-      <div className="max-w-[1800px] mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+    <footer className="relative bg-black pt-20 md:pt-28 pb-12 px-5 md:px-12 border-t border-white/5 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-16 md:mb-20">
           
           <div className="lg:col-span-7">
             <motion.h2 
-              className="text-[12.5vw] md:text-[7vw] font-bold tracking-tighter leading-[0.85] uppercase mb-10"
+              className="text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight leading-none uppercase mb-8"
             >
               Start a <br />
               <span className="text-secondary italic font-light tracking-tight">Conversation<span className="text-primary">.</span></span>
             </motion.h2>
             
-            <a href={`mailto:${PERSONAL.email}`} className="group inline-flex items-center gap-4 text-lg md:text-4xl font-medium tracking-tight break-all">
+            <a href={`mailto:${PERSONAL.email}`} className="group inline-flex items-center gap-3 text-base md:text-2xl font-medium tracking-normal break-all">
               {PERSONAL.email}
               <div className="p-3 rounded-full border border-white/10 group-hover:bg-primary transition-all">
-                <ArrowUpRight className="w-5 h-5 md:w-7 md:h-7" />
+                <ArrowUpRight className="w-5 h-5" />
               </div>
             </a>
           </div>

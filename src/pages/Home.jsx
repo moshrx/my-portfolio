@@ -35,7 +35,7 @@ const Home = () => {
       className="bg-black"
     >
       {/* HERO SECTION */}
-      <section className="relative h-[100svh] flex items-center justify-center px-4 md:px-6 overflow-hidden">
+      <section className="relative min-h-[92svh] flex items-center justify-center px-4 md:px-6 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <picture>
@@ -83,7 +83,7 @@ const Home = () => {
             {PERSONAL.location}
           </motion.span>
 
-          <h1 className="text-[17vw] md:text-[11vw] font-bold tracking-tighter leading-[0.85] md:leading-[0.8] uppercase select-none pointer-events-none">
+          <h1 className="text-[4.5rem] sm:text-[6rem] md:text-[7.5rem] lg:text-[9rem] xl:text-[10rem] font-bold tracking-tight leading-[0.9] uppercase select-none pointer-events-none">
             CRAFTING <br />
             <span className="text-secondary italic font-light tracking-tight">MOMENTS<span className="text-primary">.</span></span>
           </h1>
@@ -105,11 +105,11 @@ const Home = () => {
       <Marquee />
 
       {/* CTA */}
-      <section className="px-4 md:px-12 py-20 md:py-40 flex justify-center">
+      <section className="px-4 md:px-12 py-16 md:py-28 flex justify-center">
         <Link to="/work" className="group relative flex flex-col items-center">
             <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">Click to enter</span>
-            <div className="flex items-center gap-4 text-4xl md:text-7xl font-bold tracking-tighter uppercase transition-all duration-500 group-hover:italic">
-                My Works <ArrowUpRight className="w-8 h-8 md:w-16 md:h-16 text-primary transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
+            <div className="flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tight uppercase transition-all duration-500 group-hover:italic">
+                My Works <ArrowUpRight className="w-7 h-7 md:w-10 md:h-10 text-primary transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
             </div>
             {/* Aesthetic Underline */}
             <div className="w-0 h-px bg-primary mt-2 transition-all duration-700 group-hover:w-full" />
