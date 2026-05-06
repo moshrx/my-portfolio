@@ -242,8 +242,17 @@ export const MARQUEE_TAGS = [
   "Developer",
 ];
 
-export const GALLERY_IMAGES = Array.from({ length: 19 }, (_, i) => ({
-  id: i + 1,
-  src: `/assets/gallery/img${i + 1}.avif`,
-  alt: `Perspective ${String(i + 1).padStart(2, '0')}`,
+// Explicit ID list so we can omit deleted source files without renumbering.
+// If you delete an image, also remove its number here.
+const GALLERY_IDS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+  21, 22, 23, 24, 25, /* 26 removed */ 27, 28, 29, 30,
+  31, 32, 33,
+];
+
+export const GALLERY_IMAGES = GALLERY_IDS.map((id) => ({
+  id,
+  src: `/assets/gallery/img${id}.avif`,
+  alt: `Perspective ${String(id).padStart(2, '0')}`,
 }));

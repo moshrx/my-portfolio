@@ -1,8 +1,18 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
 const Intent = () => {
   const appleEasing = [0.22, 1, 0.36, 1];
   const sectionRef = useRef(null);
+
+  // Track viewport size so parallax stays calm on mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // Scroll Parallax
   const { scrollYProgress } = useScroll({
@@ -10,8 +20,7 @@ const Intent = () => {
     offset: ["start end", "end start"],
   });
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -50 : -150]);
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -25 : -120]);
 
   const philosophies = useMemo(
   () => [
@@ -57,7 +66,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: appleEasing }}
-          className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl font-bold tracking-tight uppercase leading-none mix-blend-difference"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95] text-white"
         >
           Philosophy<span className="text-primary">.</span>
         </motion.h2>
@@ -96,7 +105,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
                 {item.title}
               </h3>
 
-              <p className="text-base md:text-xl text-zinc-400 leading-relaxed font-light antialiased">
+              <p className="text-base md:text-xl text-zinc-300 leading-relaxed font-light antialiased">
                 {item.desc}
               </p>
             </div>

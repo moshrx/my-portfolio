@@ -27,3 +27,7 @@ node_modules
 dist
 build
 .DS_Store
+
+# Raw camera originals — keep AVIFs only
+*.HEIC
+*.heic

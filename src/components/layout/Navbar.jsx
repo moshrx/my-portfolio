@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion";
 import { Menu, X, Instagram, Github, Linkedin, MessageCircle } from "lucide-react";
 import { PERSONAL, NAV_LINKS } from "../../constants";
+import EmailMe from "../ui/EmailMe";
 
 /**
  * Magnetic Component: Optimized for Desktop only
@@ -86,51 +87,59 @@ const Navbar = () => {
         </MagneticElement>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-12">
-          <div className="flex gap-10 text-[10px] uppercase tracking-[0.3em] font-black text-zinc-500">
-            {NAV_LINKS.map((link) => (
-              <MagneticElement key={link.name} strength={0.4}>
-                <Link 
-                  to={link.href} 
-                  className={`hover:text-white transition-colors duration-500 ${
-                    location.pathname === link.href ? "text-white italic" : ""
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              </MagneticElement>
-            ))}
+        <div className="hidden md:flex items-center gap-10">
+          <div className="flex gap-9 text-[10px] uppercase tracking-[0.3em] font-black text-zinc-500">
+            {NAV_LINKS.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <MagneticElement key={link.name} strength={0.4}>
+                  <Link
+                    to={link.href}
+                    className={`relative hover:text-white transition-colors duration-500 ${
+                      isActive ? "text-white" : ""
+                    }`}
+                  >
+                    <span className={isActive ? "italic" : ""}>{link.name}</span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-primary rounded-full"
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    )}
+                  </Link>
+                </MagneticElement>
+              );
+            })}
           </div>
 
-          <div className="h-4 w-[1px] bg-white/10 mx-2" />
+          <div className="h-4 w-[1px] bg-white/10" />
 
-          <div className="flex items-center gap-5 text-zinc-400">
+          <div className="flex items-center gap-4 text-zinc-400">
             <MagneticElement strength={0.5}>
               <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
-                <Instagram size={18} />
+                <Instagram size={17} />
               </a>
             </MagneticElement>
             <MagneticElement strength={0.5}>
               <a href={`https://github.com/${PERSONAL.github}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="GitHub">
-                <Github size={18} />
+                <Github size={17} />
               </a>
             </MagneticElement>
             <MagneticElement strength={0.5}>
               <a href={`https://x.com/${PERSONAL.x}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="X">
-                <XIcon size={16} />
+                <XIcon size={15} />
               </a>
             </MagneticElement>
             <MagneticElement strength={0.5}>
               <a href={PERSONAL.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-            </MagneticElement>
-            <MagneticElement strength={0.5}>
-              <a href={`https://discord.com/users/${PERSONAL.discord.replace("@", "")}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Discord">
-                <MessageCircle size={18} />
+                <Linkedin size={17} />
               </a>
             </MagneticElement>
           </div>
+
+          {/* Hire me CTA — opens mailto, no address shown */}
+          <EmailMe variant="ghost" label="Hire me" subject="Hire inquiry" icon={false} className="ml-2" />
         </div>
 
         {/* MOBILE TOGGLE: Highest z-index to stay clickable */}
@@ -171,26 +180,35 @@ const Navbar = () => {
               className="absolute inset-0 opacity-[0.03] pointer-events-none noise-overlay"
             />
             
-            <div className="flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-col gap-5 md:gap-8">
               <p className="text-[10px] uppercase tracking-[0.5em] text-zinc-500 font-bold mb-2">Sitemap</p>
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * i, duration: 0.5 }}
+                  transition={{ delay: 0.08 * i, duration: 0.5 }}
                 >
-                  <Link 
-                    to={link.href} 
-                    className="text-3xl sm:text-4xl font-bold tracking-tight uppercase flex items-center gap-4 group"
+                  <Link
+                    to={link.href}
+                    className="text-3xl sm:text-4xl font-bold tracking-tight uppercase flex items-center gap-4 group min-h-[44px]"
                   >
-                    <span className="text-zinc-800 font-mono text-xs sm:text-sm">0{i+1}</span>
+                    <span className="text-zinc-800 font-mono text-xs sm:text-sm">0{i + 1}</span>
                     <span className={location.pathname === link.href ? "text-primary italic" : "text-white"}>
                       {link.name}
                     </span>
                   </Link>
                 </motion.div>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.55, duration: 0.5 }}
+                className="pt-4"
+              >
+                <EmailMe variant="solid" label="Email me" subject="Hey Mohammed" />
+              </motion.div>
             </div>
 
             <div className="mt-auto pb-12 flex justify-between items-end border-t border-white/5 pt-8">
