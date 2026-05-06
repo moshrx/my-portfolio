@@ -73,19 +73,6 @@ const Home = () => {
           }}
           className="text-center z-10 w-full"
         >
-          {/* Status pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: appleEasing }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-white/80">
-              Available for work
-            </span>
-          </motion.div>
-
           <motion.span
             initial={{ opacity: 0, letterSpacing: "0.1em" }}
             animate={{ opacity: 1, letterSpacing: "0.4em" }}
