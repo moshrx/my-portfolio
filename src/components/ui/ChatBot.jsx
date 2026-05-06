@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, ArrowRight } from "lucide-react";
+import { MessageCircle, X, Send } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { PERSONAL, SOCIALS } from "../../constants";
+import EmailMe from "./EmailMe";
 
 const QUICK_REPLIES = [
-  { label: "Get email", key: "email" },
+  { label: "Email Mohammed", key: "email" },
   { label: "Socials", key: "socials" },
   { label: "View work", key: "work" },
   { label: "Contact page", key: "contact" },
@@ -15,19 +16,19 @@ const QUICK_REPLIES = [
 function getBotReply(input) {
   const lower = input.toLowerCase().trim();
 
-  // Email
+  // Email — never expose the address; show an EmailMe button instead.
   if (lower.includes("email") || lower.includes("mail") || lower.includes("reach")) {
     return {
-      text: `You can reach Mohammed at:`,
-      link: { label: PERSONAL.email, href: `mailto:${PERSONAL.email}` },
+      text: "Tap below to open a draft — no need to copy any address.",
+      emailCta: true,
     };
   }
 
-  // Socials
+  // Socials — drop the SOCIALS email entry so the address never leaks here either.
   if (lower.includes("social") || lower.includes("instagram") || lower.includes("github") || lower.includes("linkedin") || lower.includes("discord") || lower.includes("twitter") || /\bx\b/.test(lower)) {
     return {
       text: "Here are Mohammed's socials:",
-      socials: SOCIALS,
+      socials: SOCIALS.filter((s) => s.label !== "Email"),
       extras: [
         { label: `LinkedIn`, href: PERSONAL.linkedin },
         { label: `Discord — ${PERSONAL.discord}`, href: null },
@@ -169,15 +170,15 @@ export default function ChatBot() {
                   >
                     <p>{msg.text}</p>
 
-                    {/* Email link */}
-                    {msg.link && (
-                      <a
-                        href={msg.link.href}
-                        className="mt-2 flex items-center gap-1.5 text-primary hover:underline text-sm font-medium"
-                      >
-                        {msg.link.label}
-                        <ArrowRight size={14} />
-                      </a>
+                    {/* Email CTA — opens mailto, never reveals the address */}
+                    {msg.emailCta && (
+                      <div className="mt-3">
+                        <EmailMe
+                          variant="inline"
+                          label="Open email draft"
+                          subject="Hey Mohammed — found you via the chat"
+                        />
+                      </div>
                     )}
 
                     {/* Social links */}
