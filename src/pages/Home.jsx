@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PERSONAL, PROJECTS } from "../constants";
 import IntroSection from "../components/ui/IntroSection";
 import Marquee from "../components/ui/Marquee";
+import ProjectArtwork from "../components/ui/ProjectArtwork";
 
 const HeroScene = lazy(() => import("../components/animations/HeroScene"));
 
@@ -115,7 +116,7 @@ const Home = () => {
         <div className="flex items-end justify-between mb-8 md:mb-12 border-b border-white/5 pb-5 gap-6">
           <div>
             <span className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-3 block">
-              Featured — 002
+              Featured · 002
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight uppercase leading-[0.95]">
               Recent <span className="italic font-light text-zinc-400">drops<span className="text-primary">.</span></span>
@@ -135,36 +136,11 @@ const Home = () => {
             <Link
               key={p.id}
               to={`/work/${p.id}`}
-              className="group relative block rounded-3xl overflow-hidden bg-zinc-900 border border-white/5 aspect-[4/5] md:aspect-[3/4]"
+              className="group relative block rounded-3xl overflow-hidden border border-white/5 aspect-[4/5] md:aspect-[3/4] transition-transform duration-700 hover:-translate-y-1"
               aria-label={`Open ${p.title}`}
             >
-              <img
-                src={p.image}
-                alt={p.title}
-                loading={idx === 0 ? "eager" : "lazy"}
-                decoding="async"
-                sizes="(max-width: 767px) 92vw, 33vw"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06] grayscale-[15%] group-hover:grayscale-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: `radial-gradient(circle at 50% 100%, ${p.color}33 0%, transparent 60%)`,
-                }}
-              />
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 z-10">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[9px] uppercase tracking-[0.3em] text-white/60 font-bold">
-                    {p.tag}
-                  </span>
-                  <span className="text-[9px] font-mono text-white/40">{p.year}</span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-none transition-all duration-700 group-hover:italic">
-                  {p.title}
-                </h3>
-              </div>
-              <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-black/40 backdrop-blur border border-white/15 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-black">
+              <ProjectArtwork project={p} size="sm" />
+              <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-black/30 backdrop-blur border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-black z-10">
                 <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:rotate-45" />
               </div>
             </Link>
@@ -190,10 +166,10 @@ const Home = () => {
       <section className="px-4 md:px-12 py-16 md:py-28 flex justify-center">
         <Link to="/work" className="group relative flex flex-col items-center">
           <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">
-            Click to enter
+            Tap in
           </span>
           <div className="flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tight uppercase transition-all duration-500 group-hover:italic">
-            My Works{" "}
+            See the work{" "}
             <ArrowUpRight className="w-7 h-7 md:w-10 md:h-10 text-primary transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
           </div>
           <div className="w-0 h-px bg-primary mt-2 transition-all duration-700 group-hover:w-full" />

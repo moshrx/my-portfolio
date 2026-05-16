@@ -15,7 +15,7 @@ import { PERSONAL } from "../../constants";
  *  - inline: compact text + arrow (ChatBot replies)
  */
 
-const SUBJECT = "Hey Mohammed — let's talk";
+const SUBJECT = "Hey Mohammed, let's talk";
 const BODY =
   "Hi Mohammed,\n\nI came across your portfolio and wanted to reach out about…\n\n";
 

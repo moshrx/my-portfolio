@@ -13,7 +13,7 @@ const IntroSection = () => {
         transition={{ duration: 1, ease: appleEasing }}
         className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-8 md:mb-10"
       >
-        About — 001
+        About · 001
       </motion.p>
 
       <motion.h2

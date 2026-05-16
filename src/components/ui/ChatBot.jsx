@@ -19,7 +19,7 @@ function getBotReply(input) {
   // Email — never expose the address; show an EmailMe button instead.
   if (lower.includes("email") || lower.includes("mail") || lower.includes("reach")) {
     return {
-      text: "Tap below to open a draft — no need to copy any address.",
+      text: "Tap below to open a draft. No need to copy any address.",
       emailCta: true,
     };
   }
@@ -31,8 +31,8 @@ function getBotReply(input) {
       socials: SOCIALS.filter((s) => s.label !== "Email"),
       extras: [
         { label: `LinkedIn`, href: PERSONAL.linkedin },
-        { label: `Discord — ${PERSONAL.discord}`, href: null },
-        { label: `X — @${PERSONAL.x}`, href: `https://x.com/${PERSONAL.x}` },
+        { label: `Discord · ${PERSONAL.discord}`, href: null },
+        { label: `X · @${PERSONAL.x}`, href: `https://x.com/${PERSONAL.x}` },
       ],
     };
   }
@@ -64,19 +64,19 @@ function getBotReply(input) {
 
   // Greeting
   if (/\b(hi|hello|hey|yo|sup)\b/.test(lower)) {
-    return { text: "Hey! I'm Mohammed's assistant. Ask me for his email, socials, or I can take you to any page." };
+    return { text: "Hey, I'm Mohammed's assistant. Ask for his email, socials, or I can drop you on any page." };
   }
 
   // Default
   return {
-    text: "I can help you with Mohammed's email, social links, or navigate you to any page. Try the quick options below!",
+    text: "I can hand you Mohammed's email, socials, or take you anywhere on the site. Try a quick option below.",
   };
 }
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Hey! Need Mohammed's email, socials, or want to see his work? Ask away.", ts: Date.now() },
+    { from: "bot", text: "Hey, need Mohammed's email, socials, or want to peek at his work? Just ask.", ts: Date.now() },
   ]);
   const [input, setInput] = useState("");
   const endRef = useRef(null);
@@ -154,7 +154,7 @@ export default function ChatBot() {
             {/* Header */}
             <div className="px-5 py-4 border-b border-white/5">
               <p className="text-sm font-semibold text-white">Mohammed's Assistant</p>
-              <p className="text-xs text-white/40 mt-0.5">Ask me anything — I'll point you the right way.</p>
+              <p className="text-xs text-white/40 mt-0.5">Ask anything. I'll point you the right way.</p>
             </div>
 
             {/* Messages */}
@@ -176,7 +176,7 @@ export default function ChatBot() {
                         <EmailMe
                           variant="inline"
                           label="Open email draft"
-                          subject="Hey Mohammed — found you via the chat"
+                          subject="Hey Mohammed, found you via the chat"
                         />
                       </div>
                     )}

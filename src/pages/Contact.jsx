@@ -135,13 +135,13 @@ const Contact = () => {
 
       setSubmitState({
         type: "success",
-        message: "Sent. I'll be in touch shortly.",
+        message: "Sent. Talk soon.",
       });
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
       setSubmitState({
         type: "error",
-        message: "Something went wrong. Please try again in a moment.",
+        message: "Couldn't send that. Give it another go in a sec.",
       });
     } finally {
       setIsSubmitting(false);
@@ -172,21 +172,21 @@ const Contact = () => {
           transition={{ duration: 0.8, ease: appleEasing }}
         >
           <span className="text-primary font-mono uppercase text-[10px] tracking-[0.4em] mb-6 block font-black">
-            Direct Channel — 003
+            Direct Channel · 003
           </span>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase mb-8">
-            Talk<span className="text-primary">.</span>
+            Say hi<span className="text-primary">.</span>
           </h1>
 
           <p className="text-base md:text-xl text-zinc-400 mb-8 max-w-md leading-relaxed font-light">
-            Based in {PERSONAL.location}. Open for collaborations that value motion and design.
+            Based in {PERSONAL.location}. Down to collaborate on stuff that actually cares about motion and design.
           </p>
 
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 mb-10">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-300">
-              Available · Replies within ~24h
+              Online · Usually replies in a day
             </span>
           </div>
 
@@ -195,11 +195,11 @@ const Contact = () => {
             <EmailMe
               variant="hero"
               label="Email me"
-              subject="Hey Mohammed — let's talk"
+              subject="Hey Mohammed, let's talk"
               ariaLabel="Open email draft to Mohammed"
             />
             <p className="mt-3 text-[10px] uppercase tracking-[0.3em] text-zinc-600">
-              Opens your mail app with a fresh draft.
+              Pops open a fresh draft in your mail app.
             </p>
           </div>
 
@@ -247,7 +247,7 @@ const Contact = () => {
         >
           <div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase mb-1">
-              Send a brief<span className="text-primary">.</span>
+              Drop a line<span className="text-primary">.</span>
             </h2>
             <p className="text-[11px] uppercase tracking-[0.3em] text-zinc-600 font-bold">
               Name · Email · Message
@@ -304,7 +304,7 @@ const Contact = () => {
           ) : null}
 
           <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-700 pt-2 border-t border-white/5">
-            Prefer email? Use the button on the left.
+            Prefer email? Hit the button on the left.
           </p>
         </motion.form>
       </div>
