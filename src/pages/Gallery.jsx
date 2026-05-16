@@ -104,7 +104,7 @@ const Lightbox = ({ images, openIndex, onClose, onPrev, onNext }) => {
           onClick={onClose}
           role="dialog"
           aria-modal="true"
-          aria-label={`Image viewer — ${current.alt}`}
+          aria-label={`Image viewer · ${current.alt}`}
         >
           {/* Close */}
           <button
@@ -200,7 +200,7 @@ const Gallery = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-5"
           >
-            Visual Log — 001
+            Visual Log · 001
           </motion.p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
             The <br />

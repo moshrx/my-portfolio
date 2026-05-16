@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { PROJECTS } from "../constants";
 import { ArrowUpRight, ArrowLeft, ChevronRight, Globe } from "lucide-react";
 import { useRef, useMemo, useEffect } from "react";
+import ProjectArtwork from "../components/ui/ProjectArtwork";
 
 const appleEasing = [0.22, 1, 0.36, 1];
 
@@ -145,21 +146,13 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        {/* Parallax image */}
+        {/* Hero typographic artwork */}
         <div
           ref={containerRef}
-          className="relative aspect-[4/5] md:aspect-[21/9] w-full rounded-3xl overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl"
+          className="relative aspect-[4/5] md:aspect-[21/9] w-full rounded-3xl overflow-hidden border border-white/5 shadow-2xl"
         >
           <motion.div style={{ scale: imageScale, y: imageY }} className="w-full h-full">
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              sizes="100vw"
-              className="w-full h-full object-cover grayscale-[15%] transition-all duration-1000"
-            />
+            <ProjectArtwork project={project} size="lg" showTitle={false} showMeta={false} />
           </motion.div>
         </div>
       </div>

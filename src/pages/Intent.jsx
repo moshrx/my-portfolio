@@ -27,19 +27,19 @@ const Intent = () => {
     {
       number: "01",
       title: "Clarity First",
-      desc: "I focus on building interfaces that are simple, readable, and easy to navigate. Good design should feel obvious, not overwhelming.",
+      desc: "Interfaces should feel obvious, not loud. I build for the version that's simple to read, simple to navigate, and gets out of the way.",
       align: "start",
     },
     {
       number: "02",
-      title: "Smooth Interactions",
-      desc: "I care about how things move. Subtle animations and transitions make digital products feel more alive and enjoyable to use.",
+      title: "Motion with Intent",
+      desc: "How things move matters as much as how they look. Small, considered transitions turn a flat product into something that actually feels alive.",
       align: "end",
     },
     {
       number: "03",
-      title: "Always Improving",
-      desc: "I’m constantly learning and refining my craft. Every project is an opportunity to build something better than the last.",
+      title: "Always Iterating",
+      desc: "Every project is a chance to top the last one. I keep learning, keep refining. There's always a sharper version waiting.",
       align: "start",
     },
   ],
@@ -77,7 +77,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
           transition={{ delay: 0.3, duration: 1, ease: appleEasing }}
           className="max-w-sm text-zinc-500 text-sm md:text-base uppercase tracking-widest leading-relaxed"
         >
-          Moving beyond technical execution to find the visual soul of a product.
+          Past the code. Chasing the feel that makes a product click.
         </motion.p>
       </div>
 
@@ -120,7 +120,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
         transition={{ delay: 0.5, duration: 1.2 }}
         className="mt-24 md:mt-32 text-center text-zinc-500 uppercase tracking-[0.3em] text-xs relative z-10"
       >
-        Built with intention. Reduced with discipline.
+        Built on purpose. Cut down to what matters.
       </motion.p>
 
       {/* Parallax Background Text */}

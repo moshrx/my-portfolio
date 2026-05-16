@@ -1,8 +1,69 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { INTERESTS } from "../constants";
 import BentoCard from "../components/ui/BentoCard";
 
 const appleEasing = [0.22, 1, 0.36, 1];
+
+const InterestMedia = ({ item, index }) => {
+  const videoRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (item.media !== "video") return;
+    const el = videoRef.current;
+    if (!el) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      el.pause();
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [item.media]);
+
+  if (item.media === "video") {
+    return (
+      <video
+        ref={videoRef}
+        src={item.video}
+        poster={item.poster}
+        autoPlay={inView}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={item.title}
+        className="w-full h-full object-cover opacity-65 md:opacity-55 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-[1.08]"
+      />
+    );
+  }
+
+  return (
+    <img
+      src={item.image || `/assets/interests/${item.id}.avif`}
+      alt={item.title}
+      loading={index === 0 ? "eager" : "lazy"}
+      fetchPriority={index === 0 ? "high" : "low"}
+      decoding="async"
+      sizes="(max-width: 639px) 92vw, (max-width: 1023px) 48vw, 33vw"
+      className="w-full h-full object-cover opacity-55 md:opacity-45 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-[1.08]"
+    />
+  );
+};
 
 const Interests = () => {
   return (
@@ -22,20 +83,20 @@ const Interests = () => {
             transition={{ duration: 1, ease: appleEasing }}
             className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-5"
           >
-            Personal — 002
+            Personal · 002
           </motion.p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
             Things I <br />
             <span className="italic font-light tracking-tight text-zinc-400">
-              care about
+              actually care about
               <span className="text-primary">.</span>
             </span>
           </h1>
         </div>
 
         <div className="flex items-center gap-8 border-l border-white/10 pl-8">
-          
-          
+
+
         </div>
       </div>
 
@@ -51,15 +112,7 @@ const Interests = () => {
               icon={item.icon}
             >
               <div className="absolute inset-0 z-0">
-                <img
-                  src={item.image || `/assets/interests/${item.id}.avif`}
-                  alt={item.title}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "low"}
-                  decoding="async"
-                  sizes="(max-width: 639px) 92vw, (max-width: 1023px) 48vw, 33vw"
-                  className="w-full h-full object-cover opacity-55 md:opacity-45 transition-transform duration-[1.5s] ease-[0.22,1,0.36,1] md:group-hover:scale-[1.08]"
-                />
+                <InterestMedia item={item} index={index} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
               </div>
             </BentoCard>

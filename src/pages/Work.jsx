@@ -54,11 +54,11 @@ const Work = () => {
             transition={{ duration: 0.8, ease: appleEasing }}
           >
             <span className="text-primary font-mono uppercase text-[10px] tracking-[0.4em] mb-6 block font-black">
-              Index — 2026
+              Index · 2026
             </span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase">
-              Current <br />
-              <span className="text-secondary italic font-light">Stacks<span className="text-primary">.</span></span>
+              Recent <br />
+              <span className="text-secondary italic font-light">builds<span className="text-primary">.</span></span>
             </h1>
           </motion.div>
         </div>
@@ -114,7 +114,7 @@ const Work = () => {
             </span>
           </div>
           <p className="text-zinc-600 text-[10px] md:text-xs font-mono max-w-[260px] md:text-right italic">
-            A collection of builds focused on performance and interaction.
+            Stuff I've shipped, built for speed and feel.
           </p>
         </div>
 
@@ -147,10 +147,10 @@ const Work = () => {
           className="mt-20 md:mt-24 text-center"
         >
           <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest mb-6">
-            Looking for something specific?
+            Got something in mind?
           </p>
           <div className="flex justify-center">
-            <EmailMe variant="solid" label="Let's talk details" subject="Project inquiry" />
+            <EmailMe variant="solid" label="Let's get into it" subject="Project inquiry" />
           </div>
         </motion.div>
       </section>

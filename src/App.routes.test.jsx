@@ -148,5 +148,5 @@ test("renders intent page", async () => {
 
 test("renders contact page", async () => {
   renderRoute("/contact");
-  expect(await screen.findByText(/talk/i)).toBeTruthy();
+  expect(await screen.findByText(/say hi/i)).toBeTruthy();
 });

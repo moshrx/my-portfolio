@@ -15,19 +15,19 @@ const Footer = () => {
             <motion.h2
               className="text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight leading-none uppercase mb-8"
             >
-              Start a <br />
-              <span className="text-secondary italic font-light tracking-tight">Conversation<span className="text-primary">.</span></span>
+              Let's <br />
+              <span className="text-secondary italic font-light tracking-tight">build something<span className="text-primary">.</span></span>
             </motion.h2>
 
             <div className="flex flex-col gap-5">
               <EmailMe
                 variant="solid"
-                label="Email me directly"
-                subject="Hey Mohammed — saw your work"
+                label="Email me"
+                subject="Hey Mohammed, saw your work"
               />
               <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-600 font-bold flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Available for work · Replies within ~24h
+                Open for work · Usually replies in a day
               </p>
             </div>
           </div>
@@ -61,10 +61,10 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6 text-[9px] uppercase tracking-widest text-zinc-600 font-bold">
-          <p>© {currentYear} MOSHR — BASED IN PEI</p>
+          <p>© {currentYear} MOSHR · BASED IN PEI</p>
           <div className="flex items-center gap-4">
              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-             <span>DESIGNED WITH INTENT</span>
+             <span>BUILT WITH CARE</span>
           </div>
         </div>
       </div>
