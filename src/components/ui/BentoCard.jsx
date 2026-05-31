@@ -26,7 +26,7 @@ const BentoCard = memo(({ title, subtitle, className, icon: Icon, children }) =>
 
       {/* Content Layer - Bottom (Text) */}
       <div className="relative z-10 pointer-events-none mt-auto">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight">
+        <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight">
           {title}
         </h2>
         <p className="text-[10px] md:text-sm font-mono uppercase tracking-[0.2em] opacity-70 mt-3 md:mt-4 text-primary antialiased">

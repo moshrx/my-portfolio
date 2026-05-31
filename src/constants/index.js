@@ -69,6 +69,17 @@ export const PROJECTS = [
     image: "/assets/projects/listedpei.png"
   },
   {
+    id: 9,
+    title: "Lustrouz",
+    year: "2026",
+    link: "https://lustrouz-web.vercel.app/",
+    tag: "Featured Web Product",
+    description: "A polished product surface with smooth motion and a clean component system. Built for speed and a calm, considered feel.",
+    tech: ["React", "Tailwind CSS", "Motion"],
+    color: "#A78BFA",
+    image: "/assets/projects/lustrouz.jpg"
+  },
+  {
     id: 2,
     title: "Pagebind",
     year: "2026",
@@ -78,17 +89,6 @@ export const PROJECTS = [
     tech: ["React", "PDF Render", "Product UI"],
     color: "#4F46E5",
     image: "/assets/projects/pagebind.png"
-  },
-  {
-    id: 9,
-    title: "Lustrouz",
-    year: "2026",
-    link: "https://lustrouz-web.vercel.app/",
-    tag: "Web Product",
-    description: "A polished product surface with smooth motion and a clean component system. Built for speed and a calm, considered feel.",
-    tech: ["React", "Tailwind CSS", "Motion"],
-    color: "#A78BFA",
-    image: "/assets/projects/lustrouz.jpg"
   },
   {
     id: 4,

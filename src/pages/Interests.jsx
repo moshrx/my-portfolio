@@ -85,7 +85,7 @@ const Interests = () => {
           >
             Personal · 002
           </motion.p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
             Things I <br />
             <span className="italic font-light tracking-tight text-zinc-400">
               actually care about

@@ -30,7 +30,7 @@ const ProjectRow = memo(({ project, index }) => {
             <span className="font-mono text-zinc-700 text-[10px] md:text-sm font-black group-hover:text-primary transition-colors shrink-0">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none transition-all duration-700 group-hover:italic break-words min-w-0">
+            <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none transition-all duration-700 group-hover:italic break-words min-w-0">
               {project.title}
             </h3>
           </div>

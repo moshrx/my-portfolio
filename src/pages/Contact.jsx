@@ -175,7 +175,7 @@ const Contact = () => {
             Direct Channel · 003
           </span>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase mb-8">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase mb-8">
             Say hi<span className="text-primary">.</span>
           </h1>
 
@@ -246,7 +246,7 @@ const Contact = () => {
           className="space-y-6 bg-white/[0.02] p-6 md:p-8 rounded-3xl border border-white/5 backdrop-blur-xl"
         >
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight uppercase mb-1">
+            <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight uppercase mb-1">
               Drop a line<span className="text-primary">.</span>
             </h2>
             <p className="text-[11px] uppercase tracking-[0.3em] text-zinc-600 font-bold">

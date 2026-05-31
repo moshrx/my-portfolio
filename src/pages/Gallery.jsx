@@ -202,7 +202,7 @@ const Gallery = () => {
           >
             Visual Log · 001
           </motion.p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
             The <br />
             <span className="italic font-light tracking-tight text-zinc-400">
               Archives<span className="text-primary">.</span>

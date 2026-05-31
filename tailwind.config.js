@@ -13,7 +13,9 @@ module.exports = {
         '4xl': '40px',
       },
       fontFamily: {
-        sans: ['Inter', 'SF Pro Display', 'sans-serif'],
+        sans: ['Geist', 'SF Pro Display', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        display: ['"Bricolage Grotesque"', 'Geist', 'SF Pro Display', 'sans-serif'],
       }
     },
   },

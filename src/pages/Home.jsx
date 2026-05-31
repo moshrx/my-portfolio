@@ -82,7 +82,7 @@ const Home = () => {
             {PERSONAL.location}
           </motion.span>
 
-          <h1 className="text-[3.75rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9rem] xl:text-[10rem] font-bold tracking-tight leading-[0.88] uppercase select-none pointer-events-none">
+          <h1 className="font-display text-[3.75rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9rem] xl:text-[10rem] font-bold tracking-tight leading-[0.88] uppercase select-none pointer-events-none">
             CRAFTING <br />
             <span className="text-secondary italic font-light tracking-tight">
               MOMENTS<span className="text-primary">.</span>
@@ -118,7 +118,7 @@ const Home = () => {
             <span className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-3 block">
               Featured · 002
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight uppercase leading-[0.95]">
+            <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight uppercase leading-[0.95]">
               Recent <span className="italic font-light text-zinc-400">drops<span className="text-primary">.</span></span>
             </h2>
           </div>
@@ -168,7 +168,7 @@ const Home = () => {
           <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">
             Tap in
           </span>
-          <div className="flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tight uppercase transition-all duration-500 group-hover:italic">
+          <div className="font-display flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tight uppercase transition-all duration-500 group-hover:italic">
             See the work{" "}
             <ArrowUpRight className="w-7 h-7 md:w-10 md:h-10 text-primary transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
           </div>

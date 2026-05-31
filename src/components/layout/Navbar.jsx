@@ -191,7 +191,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-3xl sm:text-4xl font-bold tracking-tight uppercase flex items-center gap-4 group min-h-[44px]"
+                    className="font-display text-3xl sm:text-4xl font-bold tracking-tight uppercase flex items-center gap-4 group min-h-[44px]"
                   >
                     <span className="text-zinc-800 font-mono text-xs sm:text-sm">0{i + 1}</span>
                     <span className={location.pathname === link.href ? "text-primary italic" : "text-white"}>

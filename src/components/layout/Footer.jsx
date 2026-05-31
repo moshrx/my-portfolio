@@ -13,7 +13,7 @@ const Footer = () => {
 
           <div className="lg:col-span-7">
             <motion.h2
-              className="text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight leading-none uppercase mb-8"
+              className="font-display text-5xl sm:text-6xl md:text-6xl font-bold tracking-tight leading-none uppercase mb-8"
             >
               Let's <br />
               <span className="text-secondary italic font-light tracking-tight">build something<span className="text-primary">.</span></span>

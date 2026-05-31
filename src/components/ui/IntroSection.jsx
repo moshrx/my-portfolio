@@ -21,7 +21,7 @@ const IntroSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1.2, ease: appleEasing }}
-        className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-tight mb-8 md:mb-10 max-w-4xl"
+        className="font-display text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-tight mb-8 md:mb-10 max-w-4xl"
       >
         {PERSONAL.tagline}
       </motion.h2>

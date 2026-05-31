@@ -66,7 +66,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: appleEasing }}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95] text-white"
+          className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95] text-white"
         >
           Philosophy<span className="text-primary">.</span>
         </motion.h2>
@@ -101,7 +101,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
                 [{item.number}]
               </span>
 
-              <h3 className="text-3xl md:text-5xl font-bold tracking-tight uppercase mb-5 md:mb-6 transition-all duration-700 group-hover:italic">
+              <h3 className="font-display text-3xl md:text-5xl font-bold tracking-tight uppercase mb-5 md:mb-6 transition-all duration-700 group-hover:italic">
                 {item.title}
               </h3>
 
@@ -128,7 +128,7 @@ className="relative py-28 md:py-36 px-5 md:px-12 max-w-[1200px] mx-auto"    >
   style={{ y: parallaxY }}
   className="absolute inset-0 flex items-end justify-center pointer-events-none select-none"
 >
-  <h2 className="text-[18rem] font-black uppercase tracking-tight opacity-[0.03] whitespace-nowrap">
+  <h2 className="font-display text-[18rem] font-black uppercase tracking-tight opacity-[0.03] whitespace-nowrap">
     Intent
   </h2>
 </motion.div>

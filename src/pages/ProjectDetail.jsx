@@ -85,7 +85,7 @@ const ProjectDetail = () => {
                 {project.tag}
               </span>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.92] uppercase mb-6 md:mb-8 break-words">
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.92] uppercase mb-6 md:mb-8 break-words">
                 {project.title}
                 <span style={{ color: project.color }}>.</span>
               </h1>
@@ -169,7 +169,7 @@ const ProjectDetail = () => {
                 Up Next · {String(((projectIndex + 1) % PROJECTS.length) + 1).padStart(2, "0")} of{" "}
                 {String(PROJECTS.length).padStart(2, "0")}
               </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight uppercase leading-[0.95] group-hover:italic transition-all duration-700">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight uppercase leading-[0.95] group-hover:italic transition-all duration-700">
                 {nextProject.title}
               </h2>
             </div>

@@ -56,7 +56,7 @@ const Work = () => {
             <span className="text-primary font-mono uppercase text-[10px] tracking-[0.4em] mb-6 block font-black">
               Index · 2026
             </span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[0.95] uppercase">
               Recent <br />
               <span className="text-secondary italic font-light">builds<span className="text-primary">.</span></span>
             </h1>
