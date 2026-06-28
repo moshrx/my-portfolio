@@ -80,6 +80,17 @@ export const PROJECTS = [
     image: "/assets/projects/lustrouz.jpg"
   },
   {
+    id: 10,
+    title: "Mos Tire Wholesale",
+    year: "2026",
+    link: "https://mostire.ca",
+    tag: "Automotive Retail",
+    description: "Wholesale tire site for a Charlottetown, PEI distributor. Clean, fast layout focused on bulk tire offerings and easy customer contact across Atlantic Canada.",
+    tech: ["React", "Tailwind CSS", "UI Design"],
+    color: "#1D3557",
+    image: "/assets/projects/mostire.jpg"
+  },
+  {
     id: 2,
     title: "Pagebind",
     year: "2026",
@@ -165,7 +176,7 @@ export const INTERESTS = [
   {
     id: "barca",
     title: "FC Barcelona",
-    subtitle: "Culer for life.",
+    subtitle: "My team.",
     icon: Heart,
     span: "md:col-span-8",
     aspect: "aspect-video md:aspect-auto",
@@ -186,7 +197,7 @@ export const INTERESTS = [
   {
     id: "video",
     title: "Video & Motion",
-    subtitle: "Editing pulled me in fast.",
+    subtitle: "I edit too.",
     icon: Video,
     span: "md:col-span-4",
     aspect: "aspect-square",
@@ -195,7 +206,7 @@ export const INTERESTS = [
   {
     id: "sunset",
     title: "Sunset",
-    subtitle: "Best hour of the day.",
+    subtitle: "I watch them.",
     icon: Sun,
     span: "md:col-span-7",
     aspect: "aspect-video md:aspect-auto",
@@ -204,7 +215,7 @@ export const INTERESTS = [
   {
     id: "chess",
     title: "Chess",
-    subtitle: "A few games before sleep.",
+    subtitle: "I play.",
     icon: Crown,
     span: "md:col-span-5",
     aspect: "aspect-video md:aspect-auto",
@@ -214,7 +225,7 @@ export const INTERESTS = [
   {
     id: "cooking",
     title: "Cooking",
-    subtitle: "Underrated creative outlet.",
+    subtitle: "I cook.",
     icon: Utensils,
     span: "md:col-span-4",
     aspect: "aspect-square",
