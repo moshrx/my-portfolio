@@ -122,18 +122,12 @@ const renderRoute = (path) => {
 
 test("renders home page", async () => {
   renderRoute("/");
-  expect(await screen.findByText(/crafting/i)).toBeTruthy();
+  expect((await screen.findAllByText(/mohammed/i)).length).toBeGreaterThan(0);
 });
 
-test("renders work page", async () => {
-  renderRoute("/work");
-  expect(await screen.findByText(/project directory/i)).toBeTruthy();
-});
-
-test("renders project detail page", async () => {
-  renderRoute("/work/0");
-  const matches = await screen.findAllByText(/pickup ai/i);
-  expect(matches.length).toBeGreaterThan(0);
+test("renders interests page", async () => {
+  renderRoute("/interests");
+  expect(await screen.findByText(/things i'm/i)).toBeTruthy();
 });
 
 test("renders gallery page", async () => {
@@ -141,12 +135,12 @@ test("renders gallery page", async () => {
   expect(await screen.findByText(/archives/i)).toBeTruthy();
 });
 
-test("renders intent page", async () => {
-  renderRoute("/intent");
-  expect(await screen.findByText(/philosophy/i)).toBeTruthy();
-});
-
 test("renders contact page", async () => {
   renderRoute("/contact");
   expect(await screen.findByText(/say hi/i)).toBeTruthy();
+});
+
+test("removed routes fall back to home", async () => {
+  renderRoute("/work");
+  expect((await screen.findAllByText(/mohammed/i)).length).toBeGreaterThan(0);
 });

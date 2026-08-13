@@ -10,14 +10,13 @@ import { PERSONAL } from "../../constants";
  *
  * Variants:
  *  - hero: oversized button (Contact page primary CTA)
- *  - solid: filled white pill (Footer / Work bottom CTA)
+ *  - solid: filled white pill (Footer)
  *  - ghost: outlined pill (Navbar / inline)
  *  - inline: compact text + arrow (ChatBot replies)
  */
 
-const SUBJECT = "Hey Mohammed, let's talk";
-const BODY =
-  "Hi Mohammed,\n\nI came across your portfolio and wanted to reach out about…\n\n";
+const SUBJECT = "Hey Mohammed";
+const BODY = "Hi Mohammed,\n\n";
 
 const buildHref = (subject = SUBJECT, body = BODY) =>
   `mailto:${PERSONAL.email}?subject=${encodeURIComponent(
@@ -48,7 +47,7 @@ const EmailMe = memo(
         >
           <span className="flex flex-col items-start text-left">
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-black opacity-60">
-              Direct Line
+              Direct
             </span>
             <span className="mt-2 text-2xl md:text-4xl font-bold tracking-tight uppercase leading-none">
               {label}

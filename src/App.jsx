@@ -8,11 +8,8 @@ import ScrollToTop from "./components/animations/ScrollToTop";
 
 // Page components (Lazy loaded for performance)
 const Home = lazy(() => import("./pages/Home"));
-const Work = lazy(() => import("./pages/Work"));
 const Gallery = lazy(() => import("./pages/Gallery"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Intent = lazy(() => import("./pages/Intent"));
 const Interests = lazy(() => import("./pages/Interests"));
 const ChatBot = lazy(() => import("./components/ui/ChatBot"));
 
@@ -67,11 +64,8 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
-              <Route path="/work" element={<Work />} />
-              <Route path="/work/:id" element={<ProjectDetail />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/interests" element={<Interests />} />
-              <Route path="/intent" element={<Intent />} />
               <Route path="/contact" element={<Contact />} />
               
               {/* Fallback for 404/wrong URLs */}

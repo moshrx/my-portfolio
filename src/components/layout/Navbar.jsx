@@ -138,8 +138,8 @@ const Navbar = () => {
             </MagneticElement>
           </div>
 
-          {/* Hire me CTA — opens mailto, no address shown */}
-          <EmailMe variant="ghost" label="Hire me" subject="Hire inquiry" icon={false} className="ml-2" />
+          {/* Email CTA — opens mailto, no address shown */}
+          <EmailMe variant="ghost" label="Email" subject="Hey Mohammed" icon={false} className="ml-2" />
         </div>
 
         {/* MOBILE TOGGLE: Highest z-index to stay clickable */}
@@ -211,7 +211,7 @@ const Navbar = () => {
               </motion.div>
             </div>
 
-            <div className="mt-auto pb-12 flex justify-between items-end border-t border-white/5 pt-8">
+            <div className="mt-auto pb-12 border-t border-white/5 pt-8">
               <div className="flex gap-6 text-zinc-400">
                 <a href={`https://instagram.com/${PERSONAL.instagram}`} target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
                   <Instagram size={18} />
@@ -229,7 +229,6 @@ const Navbar = () => {
                   <MessageCircle size={18} />
                 </a>
               </div>
-              <p className="text-[9px] uppercase tracking-widest text-zinc-600">PEI, Canada</p>
             </div>
           </motion.div>
         )}

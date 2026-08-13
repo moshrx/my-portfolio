@@ -75,7 +75,7 @@ const Interests = () => {
       className="min-h-screen bg-black pt-28 md:pt-36 pb-24 md:pb-28 px-5 md:px-12"
     >
       {/* Header Section */}
-      <div className="max-w-[1400px] mx-auto mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+      <div className="max-w-[1400px] mx-auto mb-12 md:mb-20">
         <div className="relative">
           <motion.p
             initial={{ opacity: 0, x: -10 }}
@@ -83,20 +83,15 @@ const Interests = () => {
             transition={{ duration: 1, ease: appleEasing }}
             className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-5"
           >
-            Personal · 002
+            Interests · 001
           </motion.p>
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
-            Things I <br />
+            Things I'm <br />
             <span className="italic font-light tracking-tight text-zinc-400">
-              actually care about
+              into
               <span className="text-primary">.</span>
             </span>
           </h1>
-        </div>
-
-        <div className="flex items-center gap-8 border-l border-white/10 pl-8">
-
-
         </div>
       </div>
 

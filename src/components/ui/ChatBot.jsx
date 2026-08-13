@@ -8,9 +8,9 @@ import EmailMe from "./EmailMe";
 const QUICK_REPLIES = [
   { label: "Email Mohammed", key: "email" },
   { label: "Socials", key: "socials" },
-  { label: "View work", key: "work" },
-  { label: "Contact page", key: "contact" },
+  { label: "Interests", key: "interests" },
   { label: "Gallery", key: "gallery" },
+  { label: "Contact page", key: "contact" },
 ];
 
 function getBotReply(input) {
@@ -37,13 +37,8 @@ function getBotReply(input) {
     };
   }
 
-  // Work / Projects
-  if (lower.includes("work") || lower.includes("project") || lower.includes("portfolio")) {
-    return { text: "Let me take you to the work page.", navigate: "/work" };
-  }
-
   // Contact
-  if (lower.includes("contact") || lower.includes("hire") || lower.includes("message")) {
+  if (lower.includes("contact") || lower.includes("message")) {
     return { text: "Let me take you to the contact page.", navigate: "/contact" };
   }
 
@@ -53,7 +48,7 @@ function getBotReply(input) {
   }
 
   // Interests
-  if (lower.includes("interest") || lower.includes("hobby") || lower.includes("about")) {
+  if (lower.includes("interest") || lower.includes("hobby") || lower.includes("about") || lower.includes("into")) {
     return { text: "Let me take you to the interests page.", navigate: "/interests" };
   }
 
@@ -64,19 +59,19 @@ function getBotReply(input) {
 
   // Greeting
   if (/\b(hi|hello|hey|yo|sup)\b/.test(lower)) {
-    return { text: "Hey, I'm Mohammed's assistant. Ask for his email, socials, or I can drop you on any page." };
+    return { text: "Hey. Ask for Mohammed's email or socials, or I can drop you on any page." };
   }
 
   // Default
   return {
-    text: "I can hand you Mohammed's email, socials, or take you anywhere on the site. Try a quick option below.",
+    text: "I can hand you Mohammed's email or socials, or take you anywhere on the site. Try a quick option below.",
   };
 }
 
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Hey, need Mohammed's email, socials, or want to peek at his work? Just ask.", ts: Date.now() },
+    { from: "bot", text: "Hey. Need Mohammed's email or socials? Just ask.", ts: Date.now() },
   ]);
   const [input, setInput] = useState("");
   const endRef = useRef(null);

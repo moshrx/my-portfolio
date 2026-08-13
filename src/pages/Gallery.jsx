@@ -200,7 +200,7 @@ const Gallery = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-5"
           >
-            Visual Log · 001
+            Gallery · 002
           </motion.p>
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight uppercase leading-[0.95]">
             The <br />

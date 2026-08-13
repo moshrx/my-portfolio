@@ -2,12 +2,17 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { PERSONAL, PROJECTS } from "../constants";
+import { PERSONAL } from "../constants";
 import IntroSection from "../components/ui/IntroSection";
 import Marquee from "../components/ui/Marquee";
-import ProjectArtwork from "../components/ui/ProjectArtwork";
 
 const HeroScene = lazy(() => import("../components/animations/HeroScene"));
+
+const PAGES = [
+  { index: "01", name: "Interests", href: "/interests", note: "What I'm into" },
+  { index: "02", name: "Gallery", href: "/gallery", note: "Photos" },
+  { index: "03", name: "Contact", href: "/contact", note: "Say hi" },
+];
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -26,9 +31,6 @@ const Home = () => {
     const isDesktop = window.innerWidth >= 1024;
     setShouldRenderHeroScene(!mediaQuery.matches && isDesktop);
   }, []);
-
-  // Pick the 3 latest projects (assuming list order = recency)
-  const featured = PROJECTS.slice(0, 3);
 
   return (
     <motion.div
@@ -83,9 +85,9 @@ const Home = () => {
           </motion.span>
 
           <h1 className="font-display text-[3.75rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9rem] xl:text-[10rem] font-bold tracking-tight leading-[0.88] uppercase select-none pointer-events-none">
-            CRAFTING <br />
+            I'M <br />
             <span className="text-secondary italic font-light tracking-tight">
-              MOMENTS<span className="text-primary">.</span>
+              MOHAMMED<span className="text-primary">.</span>
             </span>
           </h1>
         </motion.div>
@@ -111,70 +113,43 @@ const Home = () => {
       {/* INTRO */}
       <IntroSection />
 
-      {/* FEATURED WORK BAND */}
+      {/* INDEX — the two other places on this site */}
       <section className="px-5 md:px-12 py-16 md:py-24 max-w-[1400px] mx-auto">
-        <div className="flex items-end justify-between mb-8 md:mb-12 border-b border-white/5 pb-5 gap-6">
-          <div>
-            <span className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-3 block">
-              Featured · 002
-            </span>
-            <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight uppercase leading-[0.95]">
-              Recent <span className="italic font-light text-zinc-400">drops<span className="text-primary">.</span></span>
-            </h2>
-          </div>
-          <Link
-            to="/work"
-            className="hidden md:inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.35em] text-zinc-400 hover:text-white font-black transition-colors"
-          >
-            All work
-            <ArrowUpRight size={14} />
-          </Link>
-        </div>
+        <span className="text-primary font-mono text-[10px] uppercase tracking-[0.35em] font-black mb-8 md:mb-10 block">
+          Index · 002
+        </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {featured.map((p, idx) => (
+        <div className="border-t border-white/5">
+          {PAGES.map((page) => (
             <Link
-              key={p.id}
-              to={`/work/${p.id}`}
-              className="group relative block rounded-3xl overflow-hidden border border-white/5 aspect-[4/5] md:aspect-[3/4] transition-transform duration-700 hover:-translate-y-1"
-              aria-label={`Open ${p.title}`}
+              key={page.href}
+              to={page.href}
+              className="group flex items-center justify-between gap-6 border-b border-white/5 py-8 md:py-10"
             >
-              <ProjectArtwork project={p} size="sm" />
-              <div className="absolute top-5 right-5 w-10 h-10 rounded-full bg-black/30 backdrop-blur border border-white/20 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:text-black z-10">
-                <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:rotate-45" />
+              <div className="flex items-baseline gap-5 md:gap-8">
+                <span className="font-mono text-[10px] text-zinc-700 tracking-widest">
+                  {page.index}
+                </span>
+                <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight uppercase leading-none transition-colors duration-500 text-zinc-300 group-hover:text-white">
+                  {page.name}
+                </h2>
+              </div>
+              <div className="flex items-center gap-5 md:gap-8">
+                <span className="hidden sm:block text-[10px] uppercase tracking-[0.3em] text-zinc-600">
+                  {page.note}
+                </span>
+                <ArrowUpRight
+                  size={22}
+                  className="shrink-0 text-zinc-600 transition-all duration-500 group-hover:text-primary group-hover:rotate-45"
+                />
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Mobile-only "All work" link */}
-        <div className="md:hidden mt-8 flex justify-center">
-          <Link
-            to="/work"
-            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.35em] text-zinc-400 hover:text-white font-black"
-          >
-            See all work
-            <ArrowUpRight size={14} />
-          </Link>
         </div>
       </section>
 
       {/* MARQUEE */}
       <Marquee />
-
-      {/* CTA */}
-      <section className="px-4 md:px-12 py-16 md:py-28 flex justify-center">
-        <Link to="/work" className="group relative flex flex-col items-center">
-          <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.3em] mb-4">
-            Tap in
-          </span>
-          <div className="font-display flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tight uppercase transition-all duration-500 group-hover:italic">
-            See the work{" "}
-            <ArrowUpRight className="w-7 h-7 md:w-10 md:h-10 text-primary transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
-          </div>
-          <div className="w-0 h-px bg-primary mt-2 transition-all duration-700 group-hover:w-full" />
-        </Link>
-      </section>
     </motion.div>
   );
 };

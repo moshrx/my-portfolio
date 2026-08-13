@@ -22,154 +22,22 @@ export const PERSONAL = {
   x: "moshrx",
   linkedin: "https://www.linkedin.com/in/moshrx/",
   discord: "@moshrx",
-  role: "Creative Developer & Editor",
-  philosophy: "Spatial motion meets clean digital architecture.",
-  tagline: "Just building stuff I'd actually want to use.",
-  bio: "I'm Mohammed, based in Charlottetown, building things that feel clean, expressive, and a little cinematic.",
+  tagline: "This is where I keep what I'm into.",
+  bio: "Photos, football, coffee, chess, and whatever else has my attention.",
 };
 
 /**
- * 2. CINEMATIC NAVIGATION
+ * 2. NAVIGATION
  */
 export const NAV_LINKS = [
   { name: "Home", href: "/"},
   { name: "Interests", href: "/interests", type: "internal" },
-  { name: "Work", href: "/work" },
-  { name: "Intent", href: "/intent", type: "internal" },
   { name: "Gallery", href: "/gallery", type: "internal" },
   { name: "Contact", href: "/contact", type: "internal" },
 ];
 
 /**
- * 3. ENRICHED PROJECT DATA
- * Order = display order. `id` is stable for routing (/work/:id) — do not reuse.
- * PickUp AI stays pinned as the featured product.
- */
-export const PROJECTS = [
-  {
-    id: 0,
-    title: "PickUp AI",
-    year: "2026",
-    link: "https://www.listedpei.ca/pickupai",
-    tag: "Featured Local AI",
-    description: "AI phone agent for PEI businesses. Answers calls, handles FAQs, and routes bookings 24/7. Built around live demo calls and real coverage for tourist-season call volume.",
-    tech: ["React", "AI Phone Agent", "Local Business"],
-    color: "#8B5CF6",
-    image: "/assets/projects/pickup-ai.png"
-  },
-  {
-    id: 1,
-    title: "ListedPEI",
-    year: "2026",
-    link: "https://www.listedpei.ca/",
-    tag: "Local AI Tool",
-    description: "Free AI-powered Google Business Profile kit generator for PEI small businesses. Tuned for local SEO, quick onboarding, and profile content that actually converts.",
-    tech: ["React", "Local SEO", "Gemini AI"],
-    color: "#0EA5E9",
-    image: "/assets/projects/listedpei.png"
-  },
-  {
-    id: 9,
-    title: "Lustrouz",
-    year: "2026",
-    link: "https://lustrouz-web.vercel.app/",
-    tag: "Featured Web Product",
-    description: "A polished product surface with smooth motion and a clean component system. Built for speed and a calm, considered feel.",
-    tech: ["React", "Tailwind CSS", "Motion"],
-    color: "#A78BFA",
-    image: "/assets/projects/lustrouz.jpg"
-  },
-  {
-    id: 10,
-    title: "Mos Tire Wholesale",
-    year: "2026",
-    link: "https://mostire.ca",
-    tag: "Automotive Retail",
-    description: "Wholesale tire site for a Charlottetown, PEI distributor. Clean, fast layout focused on bulk tire offerings and easy customer contact across Atlantic Canada.",
-    tech: ["React", "Tailwind CSS", "UI Design"],
-    color: "#1D3557",
-    image: "/assets/projects/mostire.jpg"
-  },
-  {
-    id: 2,
-    title: "Pagebind",
-    year: "2026",
-    link: "https://pagebind.netlify.app/",
-    tag: "PDF Tool",
-    description: "Invite-only ebook generator that turns pasted text into a clean, formatted PDF. Structured parsing, style templates, font options, live previews, download capture.",
-    tech: ["React", "PDF Render", "Product UI"],
-    color: "#4F46E5",
-    image: "/assets/projects/pagebind.png"
-  },
-  {
-    id: 4,
-    title: "Cricket PEI",
-    year: "2026",
-    link: "https://cricketpei.ca",
-    tag: "Sports Federation",
-    description: "Official site for PEI Cricket. Built for speed and quick access to match data and federation updates.",
-    tech: ["HTML5", "Tailwind CSS", "UI Design"],
-    color: "#0071e3",
-    image: "/assets/projects/cricket.jpg"
-  },
-  {
-    id: 3,
-    title: "Fat Cat Bakery",
-    year: "2026",
-    link: "https://fatcatbakery.netlify.app/",
-    tag: "Local Business",
-    description: "Polished bakery site with simple navigation and conversion-friendly layouts.",
-    tech: ["NextJs", "Tailwind CSS", "UX/UI"],
-    color: "#F2CC8F",
-    image: "/assets/projects/fatcat.jpg"
-  },
-  {
-    id: 5,
-    title: "Red Soil",
-    year: "2026",
-    link: "https://redsoil.netlify.app/",
-    tag: "Community Branding",
-    description: "A clean, structured brand site inspired by PEI’s identity. Grid systems and solid spacing throughout.",
-    tech: ["HTML5", "Tailwind CSS", "Brand UI"],
-    color: "#BC4749",
-    image: "/assets/projects/redsoil.jpg"
-  },
-  {
-    id: 6,
-    title: "Lootbins Canada",
-    year: "2026",
-    link: "https://www.lootbinscanada.com/",
-    tag: "E-commerce & Retail",
-    description: "Inventory-focused retail site. Clean layout built to handle high product volume and clear navigation.",
-    tech: ["Shopify", "UI Design", "E-commerce"],
-    color: "#E63946",
-    image: "/assets/projects/lootbins.jpg"
-  },
-  {
-    id: 7,
-    title: "Moe's Latte",
-    year: "2026",
-    link: "https://moes-latte.netlify.app/",
-    tag: "Café Website",
-    description: "Modern café site with strong typography. Built to match the shop's actual vibe.",
-    tech: ["HTML5", "Tailwind CSS", "UI Design"],
-    color: "#D4A373",
-    image: "/assets/projects/moes.jpg"
-  },
-  {
-    id: 8,
-    title: "Pink Crow",
-    year: "2026",
-    link: "https://pinkcrow.netlify.app/",
-    tag: "Restaurant Experience",
-    description: "Bold restaurant site with high-contrast imagery and a clear visual hierarchy.",
-    tech: ["HTML5", "Tailwind CSS", "UI Design"],
-    color: "#D4A373",
-    image: "/assets/projects/pinkcrow.jpg"
-  }
-];
-/**
- * 4. INTERESTS / BENTO CONTENT
+ * 3. INTERESTS / BENTO CONTENT
  * `media: "video"` on the coffee card swaps the still for an autoplaying clip.
  */
 export const INTERESTS = [
@@ -233,7 +101,7 @@ export const INTERESTS = [
   },
 ];
 /**
- * 5. SOCIAL ECOSYSTEM
+ * 4. SOCIALS
  */
 export const SOCIALS = [
   {
@@ -252,25 +120,33 @@ export const SOCIALS = [
     label: "Email",
     href: `mailto:${PERSONAL.email}`,
     icon: Mail,
-    handle: "Send Inquiry"
+    handle: "Say hi"
   }
 ];
 
 export const MARQUEE_TAGS = [
   "Culer",
-  "Late Night Builds",
-  "Cinematic Cuts",
-  "Recipe Experiments",
-  "Always Iterating",
-  "Post-Workout Calm",
-  "Més que un club",
+  "Coffee",
   "Chess",
-  "Developer",
+  "Cooking",
+  "Sunsets",
+  "Cinematic Cuts",
+  "Més que un club",
+  "Late Nights",
+  "Film Photos",
 ];
 
 // Explicit ID list so we can omit deleted source files without renumbering.
 // If you delete an image, also remove its number here.
+// 34-95 are the newer batch, ordered by capture date, and lead the grid.
 const GALLERY_IDS = [
+  95, 94, 93, 92, 91, 90, 89, 88, 87, 86,
+  85, 84, 83, 82, 81, 80, 79, 78, 77, 76,
+  75, 74, 73, 72, 71, 70, 69, 68, 67, 66,
+  65, 64, 63, 62, 61, 60, 59, 58, 57, 56,
+  55, 54, 53, 52, 51, 50, 49, 48, 47, 46,
+  45, 44, 43, 42, 41, 40, 39, 38, 37, 36,
+  35, 34,
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
   11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   21, 22, 23, 24, 25, /* 26 removed */ 27, 28, 29, 30,
